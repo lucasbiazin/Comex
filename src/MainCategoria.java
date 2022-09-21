@@ -5,21 +5,21 @@ public class MainCategoria {
 	
 	Categoria categoria =	new Categoria();
 		
-		categoria.id = 1;
-		categoria.nome =  "INFORMÁTICA";
-		categoria.status = true;
+		categoria.setId(1);
+		categoria.setNome("INFORMÁTICA"); 
+		categoria.setStatus(true);
 		
 		Categoria categoria2 =	new Categoria();
 				
-		categoria2.id = 2;
-		categoria2.nome =  "MÓVEIS";
-		categoria2.status = false;
+		categoria2.setId(2);
+		categoria2.setNome("MÓVEIS");
+		categoria2.setStatus(false);
 		
 		Categoria categoria3 =	new Categoria();
 		
-		categoria3.id = 3;
-		categoria3.nome =  "LIVROS";
-		categoria3.status = true;
+		categoria3.setId(3);
+		categoria3.setNome("LIVROS");
+		categoria3.setStatus(true);
 		
 	
 		System.out.println(categoria.id  + categoria.nome + categoria.status);

@@ -1,15 +1,16 @@
 
+
 public class MainProduto {
 
 	public static void main(String[] args) {
 
 		Produto produto = new Produto();
 
-		produto.id = 1;
-		produto.nome = "Notebook Samsung";
-		produto.precoUnitario = 3523.00;
-		produto.quantidadeEstoque = 1;
-		produto.categoria = "INFORMÁTICA";
+		produto.setId(1);
+		produto.setNome("Notebook Samsung");
+		produto.setPrecoUnitario(3523.00);
+		produto.setQuantidadeEstoque(1);
+		produto.setCategoria("INFORMÁTICA");
 		double valorComImposto = produto.CalculaImposto(3523);
 		double valorEstoque = produto.CalculaTotal(3523, 1);
 
@@ -18,11 +19,11 @@ public class MainProduto {
 
 		Produto produto2 = new Produto();
 
-		produto2.id = 2;
-		produto2.nome = "Clean Architecture";
-		produto2.precoUnitario = 102.90;
-		produto2.quantidadeEstoque = 2;
-		produto2.categoria = "LIVROS";
+		produto2.setId(2);
+		produto2.setNome("Clean Architecture");
+		produto2.setPrecoUnitario(102.90);
+		produto2.setQuantidadeEstoque(2);
+		produto2.setCategoria("LIVROS");
 
 		double valorComImposto2 = produto2.CalculaImposto(102.90);
 		double valorEstoque2 = produto2.CalculaTotal(102.90, 2);
@@ -32,11 +33,11 @@ public class MainProduto {
 
 		Produto produto3 = new Produto();
 
-		produto3.id = 3;
-		produto3.nome = "Monitor Dell 27";
-		produto3.precoUnitario = 1889.00;
-		produto3.quantidadeEstoque = 3;
-		produto3.categoria = "INFORMÁTICA";
+		produto3.setId(3);
+		produto3.setNome("Monitor Dell 27");
+		produto3.setPrecoUnitario(1889.00);
+		produto3.setQuantidadeEstoque(3);
+		produto3.setCategoria("INFORMÁTICA");
 
 		double valorComImposto3 = produto3.CalculaImposto(1889);
 		double valorEstoque3 = produto3.CalculaTotal(1889, 3);
@@ -46,11 +47,11 @@ public class MainProduto {
 
 		ProdutoIsento produtoIsento = new ProdutoIsento();
 
-		produtoIsento.id = 2;
-		produtoIsento.nome = "Clean Architecture";
-		produtoIsento.precoUnitario = 102.90;
-		produtoIsento.quantidadeEstoque = 2;
-		produtoIsento.categoria = "LIVROS";
+		produtoIsento.setId(2);
+		produtoIsento.setNome("Clean Architecture");
+		produtoIsento.setPrecoUnitario(102.90);
+		produtoIsento.setQuantidadeEstoque(2);
+		produtoIsento.setCategoria("LIVROS");
 
 		double valorEstoqueTotal = produtoIsento.calculaTotalIsentos(102.90, 2);
 
@@ -59,5 +60,15 @@ public class MainProduto {
 		System.out.println(produtoIsento.id + produtoIsento.nome + produtoIsento.precoUnitario
 				+ produtoIsento.quantidadeEstoque + produtoIsento.categoria + valorEstoqueTotal + valorImpostoIsento);
 
+		
+		
+	
+		
+		
 	}
+	
+	
+	
+	
+	
 }
