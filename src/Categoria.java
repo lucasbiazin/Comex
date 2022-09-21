@@ -2,6 +2,10 @@
 public class Categoria {
 
 	int id;
+	String nome;
+	Status status;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -14,12 +18,11 @@ public class Categoria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public boolean isStatus() {
+	public Status isStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
-	String nome;
-	boolean status;
+	
 }

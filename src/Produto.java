@@ -8,6 +8,8 @@ public class Produto {
 	int quantidadeEstoque;
 	String categoria;
 
+
+
 	/** Métodos/ **/
 
 	public double CalculaTotal(double preco, double estoque) {
