@@ -1,26 +1,27 @@
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ItemPedido {
-	int id;
-	double precoUnitario;
-	int quantidade;
-	ProdutoItemPedido produtoItemPedido;
-	Pedido pedido;
-	double desconto;
-	int tipoDesconto = 0;
+	
+	private static final AtomicInteger count = new AtomicInteger(0); 
+	private int id;
+	private double precoUnitario;
+	private int quantidade;
+	private ProdutoItemPedido produtoItemPedido;
+	private Pedido pedido;
+	private double desconto;
+	private int tipoDesconto = 0;
 
-		public ItemPedido(int id, double precoUnitario, int quantidade, ProdutoItemPedido  produtoItemPedido,
-				Pedido pedido, double desconto,
-				int tipoDesconto) {
-			
-			
-		this.id = id;
+	public ItemPedido( double precoUnitario, int quantidade, ProdutoItemPedido produtoItemPedido, Pedido pedido,
+			double desconto, int tipoDesconto) {
+
+		this.id = count.incrementAndGet();
 		this.precoUnitario = precoUnitario;
 		this.quantidade = quantidade;
 		this.produtoItemPedido = produtoItemPedido;
 		this.pedido = pedido;
 		this.desconto = desconto;
 		this.tipoDesconto = tipoDesconto;
-
+		
 	}
 
 	public double filtraDescontos() {
@@ -38,10 +39,13 @@ public class ItemPedido {
 		}
 		return 0;
 	}
-
-	public int getId() {
+	
+	
+	public  int getId() {
 		return id;
 	}
+
+
 
 	public double getPrecoUnitario() {
 		return precoUnitario;
@@ -51,7 +55,7 @@ public class ItemPedido {
 		return quantidade;
 	}
 
-	public ProdutoItemPedido  getProduto() {
+	public ProdutoItemPedido getProduto() {
 		return produtoItemPedido;
 	}
 

@@ -1,24 +1,27 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Pedido   {
+	
+	private static final AtomicInteger count = new AtomicInteger(0); 
 	int id;
 	String data;
 	Cliente cliente;
-	private static int total = 0;
+	
 
 
 
 
 	
 
-	public Pedido(int id, String data, Cliente cliente) {
+	public Pedido( String data, Cliente cliente) {
 		
-		this.id = id;
+		this.id = count.incrementAndGet();
 		this.data = data;
 		this.cliente = cliente;
-		Pedido.total++;
+		
 	
 	}
 
@@ -53,9 +56,7 @@ public class Pedido   {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public static int getTotal() {
-		return Pedido.total;
-	}
+	
 	}
 
 

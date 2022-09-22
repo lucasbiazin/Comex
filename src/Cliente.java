@@ -1,6 +1,8 @@
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Cliente {
 
+	private static final AtomicInteger count = new AtomicInteger(0); 
 	private int id;
 	private String nome;
 	private String cpf;
@@ -14,10 +16,10 @@ public class Cliente {
 
 	// Construtor
 
-	public Cliente(int id, String nome, String cpf, String telefone, String rua, int numeroPredial, String complemento,
+	public Cliente( String nome, String cpf, String telefone, String rua, int numeroPredial, String complemento,
 			String bairro, String cidade, String estado) {
 
-		this.id = id;
+		this.id = count.incrementAndGet();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;

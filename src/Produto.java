@@ -1,6 +1,8 @@
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Produto {
 
+	private static final AtomicInteger count = new AtomicInteger(0);
 	int id;
 	String nome;
 	String descricao;
@@ -8,7 +10,12 @@ public class Produto {
 	int quantidadeEstoque;
 	String categoria;
 
+	
+	
+	
 
+
+	
 
 	/** Métodos/ **/
 
@@ -34,12 +41,10 @@ public class Produto {
 	/** Getters and Setters/ **/
 
 	public int getId() {
-		return id;
+		return this.id = count.incrementAndGet();
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+
 
 	public String getNome() {
 		return nome;

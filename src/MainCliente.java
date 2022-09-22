@@ -3,13 +3,13 @@ public class MainCliente {
 
 	public static void main(String[] args) {
 
-		Cliente Ana = new Cliente(1, "Ana", "111.111.111-11", "(44) 11111-1111", "Rua da praia", 77, "Casa",
+		Cliente Ana = new Cliente( "Ana", "111.111.111-11", "(44) 11111-1111", "Rua da praia", 77, "Casa",
 				"Porto Belo", "Florianopólis", "Santa Catarina");
 
-		Cliente Eli = new Cliente(2, "Eli", "222.222.222-22", "(44) 22222-2222", "Rua da Independência", 07, "Casa",
+		Cliente Eli = new Cliente("Eli", "222.222.222-22", "(44) 22222-2222", "Rua da Independência", 07, "Casa",
 				"Jardim Brasil", "Brasilia", "Distrito Federal");
 
-		Cliente Gabi = new Cliente(3, "Gabi", "333.333.333-33", "(44)33333-3333", "Avenida Tricolor", 1930, "Casa",
+		Cliente Gabi = new Cliente( "Gabi", "333.333.333-33", "(44)33333-3333", "Avenida Tricolor", 1930, "Casa",
 				"Morumbi", "São Paulo", "São Paulo");
 
 		// Imprimir resultados
