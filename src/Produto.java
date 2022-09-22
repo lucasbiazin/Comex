@@ -11,11 +11,18 @@ public class Produto {
 	String categoria;
 
 	
-	
-	
-
 
 	
+	public Produto( String nome, String descricao, double precoUnitario, int quantidadeEstoque,
+			String categoria) {
+		
+		this.id = count.incrementAndGet();
+		this.nome = nome;
+		this.descricao = descricao;
+		this.precoUnitario = precoUnitario;
+		this.quantidadeEstoque = quantidadeEstoque;
+		this.categoria = categoria;
+	}
 
 	/** Métodos/ **/
 
@@ -41,7 +48,7 @@ public class Produto {
 	/** Getters and Setters/ **/
 
 	public int getId() {
-		return this.id = count.incrementAndGet();
+		return this.id;
 	}
 
 

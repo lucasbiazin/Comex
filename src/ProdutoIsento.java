@@ -1,18 +1,13 @@
-import java.util.concurrent.atomic.AtomicInteger;
 
-public class ProdutoIsento {
-	
-	private static final AtomicInteger count = new AtomicInteger(0); 
-	int id;
-	String nome;
-	String descricao;
-	double precoUnitario;
-	int quantidadeEstoque;
-	String  categoria;
+public class ProdutoIsento extends Produto {
+
+	public ProdutoIsento(String nome, String descricao, double precoUnitario, int quantidadeEstoque, String categoria) {
+		super(nome, descricao, precoUnitario, quantidadeEstoque, categoria);
+		// TODO Auto-generated constructor stub
+	}
 
 	public double calculaTotalIsentos(double preco, double estoque) {
 
-		
 		preco = precoUnitario;
 		estoque = quantidadeEstoque;
 		double valor;
@@ -31,7 +26,7 @@ public class ProdutoIsento {
 	};
 
 	public int getId() {
-		return this.id = count.incrementAndGet();
+		return this.id;
 	}
 
 	public void setId(int id) {

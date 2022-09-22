@@ -6,12 +6,12 @@ public class ItemPedido {
 	private int id;
 	private double precoUnitario;
 	private int quantidade;
-	private ProdutoItemPedido produtoItemPedido;
+	private Produto produtoItemPedido;
 	private Pedido pedido;
 	private double desconto;
 	private int tipoDesconto = 0;
 
-	public ItemPedido( double precoUnitario, int quantidade, ProdutoItemPedido produtoItemPedido, Pedido pedido,
+	public ItemPedido( double precoUnitario, int quantidade, Produto produtoItemPedido, Pedido pedido,
 			double desconto, int tipoDesconto) {
 
 		this.id = count.incrementAndGet();
@@ -55,7 +55,7 @@ public class ItemPedido {
 		return quantidade;
 	}
 
-	public ProdutoItemPedido getProduto() {
+	public Produto getProduto() {
 		return produtoItemPedido;
 	}
 

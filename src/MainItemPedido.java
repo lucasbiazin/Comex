@@ -15,10 +15,13 @@ public class MainItemPedido {
 		Pedido pedido4 = new Pedido( "21/09/2022 14h40", new Cliente( "Gabi", "333.333.333-33", "(44)33333-3333",
 				"Avenida Tricolor", 1930, "Casa", "Morumbi", "São Paulo", "São Paulo"));
 
-		ProdutoItemPedido produto1 = new ProdutoItemPedido(1, "Mouse Raser Dragon", 230.00, 21, "Informática");
-		ProdutoItemPedido produto2 = new ProdutoItemPedido(2, "Playstation 5", 3970.00, 9, "Video-Games");
-		ProdutoItemPedido produto3 = new ProdutoItemPedido(3, "Iphone 11", 2900.00, 4, "Celulares");
-		ProdutoItemPedido produto4 = new ProdutoItemPedido(4, "Chiclete tatuagem", 0.20, 114, "Balas e Doces");
+		Produto produto1 = new Produto("Mouse Raser Dragon", "Gamer", 230, 14, "INFORMÁTICA");
+		Produto produto2 = new Produto("Playstation 5", "Video-Games", 3970.00, 9, "Eletrônicos");
+		Produto produto3 = new Produto("Iphone 11", "Iphone", 2900.00, 4, "Celulares");
+		Produto produto4 = new Produto("Chiclete tatuagem", "Chicletes", 0.20, 114, "Balas e Doces");
+		
+		
+
 
 		ItemPedido itempedido1 = new ItemPedido( 230.00, 2, produto1, pedido1, 0.10, 1);
 		ItemPedido itempedido2 = new ItemPedido( 3970.00, 1, produto2, pedido2, 0.10, 1);

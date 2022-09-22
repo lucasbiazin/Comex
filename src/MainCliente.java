@@ -13,7 +13,7 @@ public class MainCliente {
 				"Morumbi", "São Paulo", "São Paulo");
 
 		// Imprimir resultados
-
+		System.out.println("-------------------Clientes------------------");
 		System.out.println(" ID: " + Ana.getId());
 		System.out.println(" Nome: " + Ana.getNome());
 		System.out.println(" CPF: " + Ana.getCpf());
@@ -24,7 +24,7 @@ public class MainCliente {
 		System.out.println(" Bairro: " + Ana.getBairro());
 		System.out.println(" Cidade: " + Ana.getCidade());
 		System.out.println(" Estado: " + Ana.getEstado());
-		System.out.println(" ------------------------");
+		System.out.println(" ---------------------------------------------");
 
 		System.out.println(" ID: " + Eli.getId());
 		System.out.println(" Nome: " + Eli.getNome());
@@ -36,7 +36,7 @@ public class MainCliente {
 		System.out.println(" Bairro: " + Eli.getBairro());
 		System.out.println(" Cidade: " + Eli.getCidade());
 		System.out.println(" Estado: " + Eli.getEstado());
-		System.out.println(" ------------------------");
+		System.out.println(" ---------------------------------------------");
 
 		System.out.println(" ID: " + Gabi.getId());
 		System.out.println(" Nome: " + Gabi.getNome());
@@ -48,7 +48,7 @@ public class MainCliente {
 		System.out.println(" Bairro: " + Gabi.getBairro());
 		System.out.println(" Cidade: " + Gabi.getCidade());
 		System.out.println(" Estado: " + Gabi.getEstado());
-
+		System.out.println(" ---------------------------------------------");
 	}
 
 }
