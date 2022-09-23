@@ -3,6 +3,14 @@
 public class MainItemPedido {
 
 	public static void main(String[] args) {
+		
+		Categoria categoria1 = new Categoria("INFORMÁTICA", Status.ATIVA);
+		Categoria categoria2 = new Categoria("MÓVEIS", Status.INATIVA);
+		Categoria categoria3 = new Categoria("LIVROS", Status.ATIVA);
+		Categoria categoria4 = new Categoria("Doces", Status.ATIVA);
+		Categoria categoria5 = new Categoria("Eletrônicos", Status.ATIVA);
+		
+		
 		Pedido pedido1 = new Pedido( "21/09/2022 10h28", new Cliente( "Ana", "111.111.111-11", "(44) 11111-1111",
 				"Rua da praia", 77, "Casa", "Porto Belo", "Florianopólis", "Santa Catarina"));
 
@@ -15,14 +23,13 @@ public class MainItemPedido {
 		Pedido pedido4 = new Pedido( "21/09/2022 14h40", new Cliente( "Gabi", "333.333.333-33", "(44)33333-3333",
 				"Avenida Tricolor", 1930, "Casa", "Morumbi", "São Paulo", "São Paulo"));
 
-		Produto produto1 = new Produto("Mouse Raser Dragon", "Gamer", 230, 14, "INFORMÁTICA");
-		Produto produto2 = new Produto("Playstation 5", "Video-Games", 3970.00, 9, "Eletrônicos");
-		Produto produto3 = new Produto("Iphone 11", "Iphone", 2900.00, 4, "Celulares");
-		Produto produto4 = new Produto("Chiclete tatuagem", "Chicletes", 0.20, 114, "Balas e Doces");
 		
+		Produto produto = new Produto("Mouse Raser Dragon", "Gamer", 230, 14,categoria1);
+		Produto produto1 = new Produto("Mouse Raser Dragon", "Gamer", 230, 14,categoria1);
+		Produto produto2 = new Produto("Playstation 5", "Video-Games", 3970.00, 9, categoria5);
+		Produto produto3 = new Produto("Iphone 11", "Iphone", 2900.00, 4, categoria5);
+		Produto produto4 = new Produto("Chiclete tatuagem", "Chicletes", 0.20, 114, categoria4);
 		
-
-
 		ItemPedido itempedido1 = new ItemPedido( 230.00, 2, produto1, pedido1, 0.10, 1);
 		ItemPedido itempedido2 = new ItemPedido( 3970.00, 1, produto2, pedido2, 0.10, 1);
 		ItemPedido itempedido3 = new ItemPedido( 2900.00, 2, produto3, pedido3, 0.05, 1);
@@ -35,8 +42,7 @@ public class MainItemPedido {
 		System.out.println("Tipo do desconto: " + itempedido1.getTipoDesconto());
 		System.out.println("Preço total : R$ " + String.format("%.2f", itempedido1.SemDesconto()));
 		System.out.println("Preço promocional: R$ " + String.format("%.2f", itempedido1.filtraDescontos()));
-
-		
+	
 		System.out.println("");
 		System.out.println("Pedido " + itempedido2.getId() + ":");
 		System.out.println("Produto: " + produto2.nome);
@@ -54,7 +60,6 @@ public class MainItemPedido {
 		System.out.println("Tipo do desconto: " + itempedido3.getTipoDesconto());
 		System.out.println("Preço total : R$ " + String.format("%.2f", itempedido3.SemDesconto()));
 		System.out.println("Preço  promocional: R$ " + String.format("%.2f", itempedido3.filtraDescontos()));
-
 		
 		System.out.println("");
 		System.out.println("Pedido " + itempedido4.getId() + ":");

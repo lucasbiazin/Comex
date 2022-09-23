@@ -1,7 +1,7 @@
 
 public class ProdutoIsento extends Produto {
 
-	public ProdutoIsento(String nome, String descricao, double precoUnitario, int quantidadeEstoque, String categoria) {
+	public ProdutoIsento(String nome, String descricao, double precoUnitario, int quantidadeEstoque, Categoria categoria) {
 		super(nome, descricao, precoUnitario, quantidadeEstoque, categoria);
 		// TODO Auto-generated constructor stub
 	}
@@ -65,11 +65,11 @@ public class ProdutoIsento extends Produto {
 		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
