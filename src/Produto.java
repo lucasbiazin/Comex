@@ -6,14 +6,14 @@ public class Produto {
 	int id;
 	String nome;
 	String descricao;
-	double precoUnitario;
+	Double precoUnitario;
 	int quantidadeEstoque;
 	Categoria categoria;
 
 	
 
 	
-	public Produto( String nome, String descricao, double precoUnitario, int quantidadeEstoque,
+	public Produto( String nome, String descricao, Double precoUnitario, int quantidadeEstoque,
 			Categoria categoria) {
 		
 		this.id = count.incrementAndGet();
@@ -26,11 +26,11 @@ public class Produto {
 
 	/** Métodos/ **/
 
-	public double CalculaTotal(double preco, double estoque) {
+	public Double CalculaTotal(Double preco, int estoque) {
 
 		preco = precoUnitario;
 		estoque = quantidadeEstoque;
-		double  valor;
+		Double  valor;
 		
 		valor = preco * estoque;
 
@@ -73,7 +73,7 @@ public class Produto {
 		return precoUnitario;
 	}
 
-	public void setPrecoUnitario(double precoUnitario) {
+	public void setPrecoUnitario(Double precoUnitario) {
 		this.precoUnitario = precoUnitario;
 	}
 
@@ -91,6 +91,13 @@ public class Produto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public double CalculaTotal(double precoUnitario, int quantidadeEstoque) {
+		
+		double valor = precoUnitario * quantidadeEstoque;
+		
+		return valor;
 	}
 
 }

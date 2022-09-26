@@ -20,7 +20,7 @@ public class Categoria {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNome() {
+	public Categoria getNome(Categoria nome) {
 		return nome;
 	}
 	public void setNome(String nome) {

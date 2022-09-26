@@ -2,8 +2,7 @@
 public class MainCalculadoraValorTotal {
 
 	public static void main(String[] args) {
-		
-		
+
 		Categoria categoria1 = new Categoria("INFORMÁTICA", Status.ATIVA);
 		Categoria categoria2 = new Categoria("MÓVEIS", Status.INATIVA);
 		Categoria categoria3 = new Categoria("LIVROS", Status.ATIVA);
@@ -33,27 +32,24 @@ public class MainCalculadoraValorTotal {
 		ItemPedido itempedido4 = new ItemPedido(0.20, 22, produto4, pedido4, 0, 0);
 
 		CalculadoraValorTotal calculo = new CalculadoraValorTotal(3, 0, produto2, pedido2, 0, 0, 0);
-        
-		 System.out.println("-----------------Pedidos--------------------");
+
+		System.out.println("-----------------Pedidos--------------------");
 		System.out.println("");
 		System.out.println("Número do pedido " + itempedido1.getId() + ":");
-		System.out.println("Valor total R$: " + String.format("%.2f",calculo.calcula(2, 230)));
-		
-		
+		System.out.println("Valor total R$: " + String.format("%.2f", calculo.calcula(2, 230)));
+
 		System.out.println("");
 		System.out.println("Número do pedido " + itempedido2.getId() + ":");
-		System.out.println("Valor total R$: " + String.format("%.2f",calculo.calcula(1, 3970)));
-		
-		
+		System.out.println("Valor total R$: " + String.format("%.2f", calculo.calcula(1, 3970)));
+
 		System.out.println("");
-		System.out.println(        "Número do pedido " + itempedido3.getId() + ":");
-		System.out.println(        "Valor total R$: " + String.format("%.2f",calculo.calcula(2, 2900)));
-		
-		
+		System.out.println("Número do pedido " + itempedido3.getId() + ":");
+		System.out.println("Valor total R$: " + String.format("%.2f", calculo.calcula(2, 2900)));
+
 		System.out.println("");
 		System.out.println("Número do pedido " + itempedido4.getId() + ":");
 		System.out.println("Valor total R$:  " + String.format("%.2f", calculo.calcula(22, 0.20)));
-        System.out.println("--------------------------------------------");
+		System.out.println("--------------------------------------------");
 	}
 
 }

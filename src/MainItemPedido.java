@@ -24,11 +24,11 @@ public class MainItemPedido {
 				"Avenida Tricolor", 1930, "Casa", "Morumbi", "São Paulo", "São Paulo"));
 
 		
-		Produto produto = new Produto("Mouse Raser Dragon", "Gamer", 230, 14,categoria1);
-		Produto produto1 = new Produto("Mouse Raser Dragon", "Gamer", 230, 14,categoria1);
-		Produto produto2 = new Produto("Playstation 5", "Video-Games", 3970.00, 9, categoria5);
-		Produto produto3 = new Produto("Iphone 11", "Iphone", 2900.00, 4, categoria5);
-		Produto produto4 = new Produto("Chiclete tatuagem", "Chicletes", 0.20, 114, categoria4);
+	
+		Produto produto1 = new Produto("Mouse Raser Dragon", "Gamer", 230.00, 14,categoria1.getNome(categoria1));
+		Produto produto2 = new Produto("Playstation 5", "Video-Games", 3970.00, 9, categoria5.getNome(categoria5));
+		Produto produto3 = new Produto("Iphone 11", "Iphone", 2900.00, 4, categoria5.getNome(categoria5));
+		Produto produto4 = new Produto("Chiclete tatuagem", "Chicletes", 0.20, 114, categoria4.getNome(categoria4));
 		
 		ItemPedido itempedido1 = new ItemPedido( 230.00, 2, produto1, pedido1, 0.10, 1);
 		ItemPedido itempedido2 = new ItemPedido( 3970.00, 1, produto2, pedido2, 0.10, 1);
