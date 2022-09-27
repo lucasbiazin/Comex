@@ -1,13 +1,22 @@
+package br.com.comex.main;
+
+import br.com.comex.modelo.CalculadoraValorTotal;
+import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Pedido;
+import br.com.comex.modelo.Produto;
+import br.com.comex.modelo.ItemPedido;
+import br.com.comex.modelo.Cliente;
+import br.com.comex.enums.Status;
+
+
 
 public class MainCalculadoraValorTotal {
 
 	public static void main(String[] args) {
 
 		Categoria categoria1 = new Categoria("INFORMÁTICA", Status.ATIVA);
-		Categoria categoria2 = new Categoria("MÓVEIS", Status.INATIVA);
-		Categoria categoria3 = new Categoria("LIVROS", Status.ATIVA);
-		Categoria categoria4 = new Categoria("Doces", Status.ATIVA);
-		Categoria categoria5 = new Categoria("Eletrônicos", Status.ATIVA);
+		Categoria categoria2 = new Categoria("Doces", Status.ATIVA);
+		Categoria categoria3 = new Categoria("Eletrônicos", Status.ATIVA);
 
 		Pedido pedido1 = new Pedido("21/09/2022 10h28", new Cliente("Ana", "111.111.111-11", "(44) 11111-1111",
 				"Rua da praia", 77, "Casa", "Porto Belo", "Florianopólis", "Santa Catarina"));
@@ -22,9 +31,9 @@ public class MainCalculadoraValorTotal {
 				"Avenida Tricolor", 1930, "Casa", "Morumbi", "São Paulo", "São Paulo"));
 
 		Produto produto1 = new Produto("Notebook Samsung", "Gamer", 3523.00, 14, categoria1);
-		Produto produto2 = new Produto("Playstation 5", "Video-Games", 3970.00, 9, categoria5);
-		Produto produto3 = new Produto("Iphone 11", "Iphone", 2900.00, 4, categoria5);
-		Produto produto4 = new Produto("Chiclete tatuagem", "Chicletes", 0.20, 114, categoria4);
+		Produto produto2 = new Produto("Playstation 5", "Video-Games", 3970.00, 9, categoria3);
+		Produto produto3 = new Produto("Iphone 11", "Iphone", 2900.00, 4, categoria3);
+		Produto produto4 = new Produto("Chiclete tatuagem", "Chicletes", 0.20, 114, categoria2);
 
 		ItemPedido itempedido1 = new ItemPedido(230.00, 2, produto1, pedido1, 0.10, 1);
 		ItemPedido itempedido2 = new ItemPedido(3970.00, 1, produto2, pedido2, 0.10, 1);

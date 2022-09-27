@@ -1,4 +1,11 @@
+package br.com.comex.main;
 
+import br.com.comex.enums.Status;
+import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.ItemPedido;
+import br.com.comex.modelo.Pedido;
+import br.com.comex.modelo.Produto;
 
 public class MainItemPedido {
 
@@ -36,7 +43,7 @@ public class MainItemPedido {
 		ItemPedido itempedido4 = new ItemPedido( 0.20, 22, produto4, pedido4, 0, 0);
 
 		System.out.println("Pedido " + itempedido1.getId() + ":");
-		System.out.println("Produto: " + produto1.nome);
+		System.out.println("Produto: " + produto1.getNome());
 		System.out.println("Quantidade : " + itempedido1.getQuantidade());
 		System.out.println("Desconto: " + itempedido1.getDesconto());
 		System.out.println("Tipo do desconto: " + itempedido1.getTipoDesconto());
@@ -45,7 +52,7 @@ public class MainItemPedido {
 	
 		System.out.println("");
 		System.out.println("Pedido " + itempedido2.getId() + ":");
-		System.out.println("Produto: " + produto2.nome);
+		System.out.println("Produto: " + produto2.getNome());
 		System.out.println("Quantidade : " + itempedido2.getQuantidade());
 		System.out.println("Desconto: " + itempedido2.getDesconto());
 		System.out.println("Tipo do desconto: " + itempedido2.getTipoDesconto());
@@ -54,7 +61,7 @@ public class MainItemPedido {
 
 		System.out.println("");
 		System.out.println("Pedido " + itempedido3.getId() + ":");
-		System.out.println("Produto: " + produto3.nome);
+		System.out.println("Produto: " + produto3.getNome());
 		System.out.println("Quantidade : " + itempedido3.getQuantidade());
 		System.out.println("Desconto: " + itempedido3.getDesconto());
 		System.out.println("Tipo do desconto: " + itempedido3.getTipoDesconto());
@@ -63,7 +70,7 @@ public class MainItemPedido {
 		
 		System.out.println("");
 		System.out.println("Pedido " + itempedido4.getId() + ":");
-		System.out.println("Produto: " + produto4.nome);
+		System.out.println("Produto: " + produto4.getNome());
 		System.out.println("Quantidade : " + itempedido4.getQuantidade());
 		System.out.println("Desconto: " + itempedido4.getDesconto());
 		System.out.println("Tipo do desconto:  " + itempedido4.getTipoDesconto());

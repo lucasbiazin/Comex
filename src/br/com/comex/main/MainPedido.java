@@ -1,3 +1,7 @@
+package br.com.comex.main;
+
+import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.Pedido;
 
 public class MainPedido {
 
@@ -19,19 +23,19 @@ Pedido pedido3 = new Pedido( "21/09/2022 14h40", new Cliente( "Gabi", "333.333.3
 
 
 
-System.out.println("Pedido " + pedido1.id + ":");
-System.out.println("Data: " + pedido1.data);
-System.out.println("Cliente: " + pedido1.cliente.getNome());
+System.out.println("Pedido " + pedido1.getId()+ ":");
+System.out.println("Data: " + pedido1.getData());
+System.out.println("Cliente: " + pedido1.getCliente().getNome());
 
 System.out.println(" ");
-System.out.println("Pedido " + pedido2.id + ":");
-System.out.println("Data: " + pedido2.data);
-System.out.println("Cliente: " + pedido2.cliente.getNome());
+System.out.println("Pedido " + pedido2.getId() + ":");
+System.out.println("Data: " + pedido2.getData());
+System.out.println("Cliente: " + pedido2.getCliente().getNome());
 
 System.out.println(" ");
-System.out.println("Pedido " + pedido3.id + ":");
-System.out.println("Data: " + pedido3.data);
-System.out.println("Cliente: " + pedido3.cliente.getNome());
+System.out.println("Pedido " + pedido3.getId() + ":");
+System.out.println("Data: " + pedido3.getData());
+System.out.println("Cliente: " + pedido3.getCliente().getNome());
 
 	}
 

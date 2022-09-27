@@ -1,3 +1,4 @@
+package br.com.comex.modelo;
 
 public class ProdutoIsento extends Produto {
 
@@ -17,6 +18,15 @@ public class ProdutoIsento extends Produto {
 		return (valor);
 
 	};
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public double impostoIsento(double valor) {
 
@@ -49,8 +59,10 @@ public class ProdutoIsento extends Produto {
 		this.descricao = descricao;
 	}
 
+	@Override
 	public double getPrecoUnitario() {
-		return precoUnitario;
+		// TODO Auto-generated method stub
+		return super.getPrecoUnitario();
 	}
 
 	public void setPrecoUnitario(double precoUnitario) {

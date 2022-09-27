@@ -1,3 +1,5 @@
+package br.com.comex.main;
+import br.com.comex.modelo.Cliente;
 
 public class MainCliente {
 

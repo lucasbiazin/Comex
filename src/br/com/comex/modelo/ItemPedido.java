@@ -1,3 +1,4 @@
+package br.com.comex.modelo;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ItemPedido {
