@@ -6,13 +6,13 @@ public class MainCliente {
 
 	public static void main(String[] args) {
 
-		Cliente Ana = new Cliente( "Ana Flavia", "111.111.111-11", "(44) 11111-1111", "Rua da praia", "77", "Casa",
+		Cliente Ana = new Cliente( "Ana Flavia", "111.111.111-11", "(44)11111-1111", "Rua da praia", "77", "Casa",
 				"Porto Belo", "Florianopólis", Estados.SC);
 
-		Cliente Eli = new Cliente("Eliezer", "222.222.222-22", "(44) 22222-2222", "Rua da Independência","07", "Casa",
+		Cliente Eli = new Cliente("Eliezer", "222.222.222-22", "(44)22222-2222", "Rua da Independência","07", "Casa",
 				"Jardim Brasil", "Brasilia", Estados.DF);
 
-		Cliente Gabi = new Cliente( "Gabriela", "333.333.333-33", "(44)33333-3333", "Avenida Tricolor", "1930", "Casa",
+		Cliente Gabi = new Cliente( "Gabriela", "333.333.333-33", "(11)33333-3333", "Avenida Tricolor", "1930", "Casa",
 				"Morumbi", "São Paulo", Estados.SP);
 
 		// Imprimir resultados

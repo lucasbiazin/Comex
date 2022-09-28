@@ -28,9 +28,10 @@ public class Cliente {
 		validaNomeCliente(nome);
 		this.nome = nome;
 
-		
+		validaCPF(cpf);
 		this.cpf = cpf;
 
+		validaTelefone(telefone);
 		this.telefone = telefone;
 
 		validaRua(rua);
@@ -49,6 +50,20 @@ public class Cliente {
 
 		validaEstado(estado);
 		this.estado = estado;
+	}
+
+	public void validaTelefone(String telefone) {
+
+		if (telefone.length() < 11 | telefone.length() > 16)
+			throw new IllegalArgumentException("telefone deve conter de 11 a 16 caracteres");
+
+	}
+
+	public void validaCPF(String cpf) {
+
+		if (cpf.length() < 11 | cpf.length() > 14 | cpf == null)
+			throw new IllegalArgumentException("CPF deve conter de 11 a 14 caracteres");
+
 	}
 
 	public void validaCidade(String cidade) {
@@ -79,7 +94,7 @@ public class Cliente {
 
 	public void validaEstado(Estados estado) {
 
-		if (estado != null)
+		if (estado == null)
 			throw new IllegalArgumentException("Estado não pode ser nulo");
 
 	}
@@ -96,20 +111,6 @@ public class Cliente {
 		if (nome.length() < 5) {
 			throw new IllegalArgumentException("O nome deve conter  mais de 5 caracteres");
 		}
-	}
-
-	public void validaCPF(String cpf) {
-
-		if (cpf.length() <= 11)
-			if (cpf != null)
-				if (cpf.length() > 14) {
-					throw new IllegalArgumentException("O CPF deve conter 11 ou 14 digitos e não pode ser nulo");
-
-				}
-		{
-
-		}
-
 	}
 
 	// Getters

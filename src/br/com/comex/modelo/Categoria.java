@@ -24,7 +24,7 @@ public class Categoria {
 	
 	public void validaStatus(Status status) {
 		
-		if (status != null)
+		if (status == null)
 			throw new IllegalArgumentException("Status não pode ser nulo");
 		
 	}
