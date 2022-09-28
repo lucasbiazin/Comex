@@ -16,8 +16,17 @@ public class Categoria {
 		validaNome(nome);
 		this.setNome(nome);
 
+		validaStatus(status);
 		this.status = status;
 
+	}
+	
+	
+	public void validaStatus(Status status) {
+		
+		if (status != null)
+			throw new IllegalArgumentException("Status não pode ser nulo");
+		
 	}
 
 	public void validaID(int id) {
@@ -42,10 +51,6 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public Categoria getNome(Categoria nome) {
-		return nome;
-	}
-	
 	
 
 	public void setNome(String nome) {

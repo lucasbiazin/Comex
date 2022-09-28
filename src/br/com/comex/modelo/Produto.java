@@ -11,8 +11,12 @@ public class Produto {
 	int quantidadeEstoque;
 	Categoria categoria;
 
-	public Produto(String nome, String descricao, double precoUnitario, int quantidadeEstoque, Categoria categoria) {
-		validaIDProduto(id);
+
+	
+	public Produto( String nome, String descricao, double precoUnitario, int quantidadeEstoque,
+			Categoria categoria) {
+		
+
 		this.id = count.incrementAndGet();
 
 		validaNomeProduto(nome);
@@ -29,12 +33,24 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
-	/** Métodos/ **/
+
+
 
 	
 	public void validaCategoria(Categoria categoria) {
 		
-		if (categoria == null) {throw new IllegalArgumentException("A categoria deve ser preenchida");}
+		if (categoria == null) {throw new IllegalArgumentException("A categoria deve ser preenchida");} 
+	}
+
+	public double CalculaTotal(double preco, double estoque) {
+
+		preco = precoUnitario;
+		estoque = quantidadeEstoque;
+		double  valor;
+
+		valor = preco * estoque;
+	
+		return valor;
 		
 	}
 	
@@ -46,7 +62,7 @@ public class Produto {
 
 	}
 
-	;
+	
 
 	public void validaNomeProduto(String nome) {
 
@@ -107,7 +123,7 @@ public class Produto {
 		return precoUnitario;
 	}
 
-	public void setPrecoUnitario(Double precoUnitario) {
+	public void setPrecoUnitario(double precoUnitario) {
 		this.precoUnitario = precoUnitario;
 	}
 
@@ -130,11 +146,13 @@ public class Produto {
 	public static AtomicInteger getCount() {
 		return count;
 	};
+	
+	}
 
 	/** Getters and Setters/ **/
 
 
-}
+
 
 
 

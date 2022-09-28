@@ -5,29 +5,20 @@ import br.com.comex.enums.Status;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.ProdutoIsento;
 
-
 public class MainProduto {
 
 	public static void main(String[] args) {
-			
-		
+
 		Categoria categoria1 = new Categoria("INFORMÁTICA", Status.ATIVA);
 		Categoria categoria2 = new Categoria("MÓVEIS", Status.INATIVA);
 		Categoria categoria3 = new Categoria("LIVROS", Status.ATIVA);
-		
-			
-		
+
 		System.out.println("------------------------Produtos----------------------------");
 
-		
-		
-		
 		Produto produto = new Produto("Notebook Samsung", "Gamer", 3523.00, 14, categoria1);
 		double valorComImposto = produto.CalculaImposto(produto.getPrecoUnitario());
 		double valorEstoque = produto.CalculaTotal(produto.getPrecoUnitario(), produto.getQuantidadeEstoque());
 
-		
-		
 		System.out.println("");
 		System.out.println("Produto ID: " + produto.getId());
 		System.out.println("Produto: " + produto.getNome());
@@ -37,7 +28,7 @@ public class MainProduto {
 		System.out.println("Valor dos impostos: R$ " + String.format("%.2f", valorComImposto));
 		System.out.println("Valor total do estoque: R$ " + String.format("%.2f", valorEstoque));
 
-		Produto produto2 = new Produto ("Clean Architecture", "Arquitetura de software", 102.90, 12, categoria3);
+		Produto produto2 = new Produto("Clean Architecture", "Arquitetura de software", 102.90, 12, categoria3);
 		double valorComImposto2 = produto2.CalculaImposto(produto2.getPrecoUnitario());
 		double valorEstoque2 = produto2.CalculaTotal(produto2.getPrecoUnitario(), produto2.getQuantidadeEstoque());
 
@@ -50,7 +41,7 @@ public class MainProduto {
 		System.out.println("Valor total dos impostos : R$ " + String.format("%.2f", valorComImposto2));
 		System.out.println("Valor total do estoque: R$ " + String.format("%.2f", valorEstoque2));
 
-		Produto produto3 = new Produto ("Mesa de computador gamer", "Móveis", 1523.00, 9, categoria2);
+		Produto produto3 = new Produto("Mesa de computador gamer", "Móveis", 1523.00, 9, categoria2);
 		double valorComImposto3 = produto3.CalculaImposto(produto3.getPrecoUnitario());
 		double valorEstoque3 = produto3.CalculaTotal(produto3.getPrecoUnitario(), produto3.getQuantidadeEstoque());
 
@@ -63,14 +54,11 @@ public class MainProduto {
 		System.out.println("Valor total dos impostos : R$ " + String.format("%.2f", valorComImposto3));
 		System.out.println("Valor total do estoque: R$ " + String.format("%.2f", valorEstoque3));
 
-		
-	
-		
-		ProdutoIsento produtoIsento = new ProdutoIsento("Clean Architecture", "Arquitetura de Software",102.90, 2, categoria3);
+		ProdutoIsento produtoIsento = new ProdutoIsento("Clean Architecture", "Arquitetura de Software", 102.90, 2,
+				categoria3);
 		produtoIsento.setId(2);
 		double valorEstoqueTotal = produtoIsento.calculaTotalIsentos(102.90, 2);
 		double valorImpostoIsento = produtoIsento.impostoIsento(0);
-	
 
 		System.out.println("");
 		System.out.println("-------------------Produtos isentos de impostos------------------");
