@@ -4,13 +4,14 @@ import br.com.comex.enums.Estados;
 import br.com.comex.enums.Status;
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.ComexExcepetion;
 import br.com.comex.modelo.ItemPedido;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
 
 public class MainItemPedido {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ComexExcepetion {
 
 		Categoria categoria1 = new Categoria("INFORMÁTICA", Status.ATIVA);
 		Categoria categoria2 = new Categoria("Doces", Status.ATIVA);

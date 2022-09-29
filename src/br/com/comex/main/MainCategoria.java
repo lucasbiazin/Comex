@@ -1,11 +1,12 @@
 package br.com.comex.main;
 
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.ComexExcepetion;
 import br.com.comex.enums.Status;
 
 public class MainCategoria {
 
-	public static void main(String[] args) {
+	public static void main(String[] args )throws ComexExcepetion {
 		System.out.println(" ----------------------Categorias-----------------------");
 		System.out.println(" ");
 		Categoria categoria1 = new Categoria("INFORMATICA", Status.ATIVA);

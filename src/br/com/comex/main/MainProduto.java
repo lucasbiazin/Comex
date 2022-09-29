@@ -1,13 +1,14 @@
 package br.com.comex.main;
 
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.ComexExcepetion;
 import br.com.comex.enums.Status;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.ProdutoIsento;
 
 public class MainProduto {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ComexExcepetion {
 
 		Categoria categoria1 = new Categoria("INFORMÁTICA", Status.ATIVA);
 		Categoria categoria2 = new Categoria("MÓVEIS", Status.INATIVA);

@@ -2,11 +2,12 @@ package br.com.comex.main;
 
 import br.com.comex.enums.Estados;
 import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.ComexExcepetion;
 import br.com.comex.modelo.Pedido;
 
 public class MainPedido {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ComexExcepetion {
 
 		Pedido pedido1 = new Pedido("21/09/2022 10h28", new Cliente("Ana Flavia", "111.111.111-11", "(44) 11111-1111",
 				"Rua da praia", "77", "Casa", "Porto Belo", "Florianopólis", Estados.SC));

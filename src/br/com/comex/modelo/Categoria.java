@@ -10,7 +10,7 @@ public class Categoria {
 	private String nome;
 	Status status;
 
-	public Categoria(String nome, Status status) {
+	public Categoria(String nome, Status status) throws ComexExcepetion{
 		validaID(id);
 		this.id = count.incrementAndGet();
 		
@@ -30,24 +30,24 @@ public class Categoria {
 	
 	
 	
-	public void validaStatus(Status status) {
+	public void validaStatus(Status status) throws ComexExcepetion{
 
 		if (status == null)
-			throw new IllegalArgumentException("Status não pode ser nulo");
+		throw new ComexExcepetion("Status não pode ser nulo");
 
 	}
 
-	public void validaID(int id) {
+	public void validaID(int id) throws ComexExcepetion{
 		if (id < 0) {
-			throw new IllegalArgumentException("ID inválido.");
+			throw new ComexExcepetion("ID inválido.");
 		}
 
 	}
 
-	public void validaNome(String nome) {
+	public void validaNome(String nome) throws ComexExcepetion{
 
 		if (nome.length() < 3) {
-			throw new IllegalArgumentException("O nome deve conter 3 ou mais caracteres");
+			throw new ComexExcepetion("Nome deve conter mais que 3 caracteres");
 		}
 	}
 

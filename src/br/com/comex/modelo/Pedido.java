@@ -11,7 +11,7 @@ public class Pedido {
 	String data;
 	Cliente cliente;
 
-	public Pedido(String data, Cliente cliente) {
+	public Pedido(String data, Cliente cliente) throws ComexExcepetion {
 
 		this.id = count.incrementAndGet();
 		this.data = data;
