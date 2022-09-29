@@ -2,7 +2,8 @@ package br.com.comex.modelo;
 
 public class ProdutoIsento extends Produto {
 
-	public ProdutoIsento(String nome, String descricao, double precoUnitario, int quantidadeEstoque, Categoria categoria) {
+	public ProdutoIsento(String nome, String descricao, double precoUnitario, int quantidadeEstoque,
+			Categoria categoria) {
 		super(nome, descricao, precoUnitario, quantidadeEstoque, categoria);
 		// TODO Auto-generated constructor stub
 	}
@@ -18,21 +19,10 @@ public class ProdutoIsento extends Produto {
 		return (valor);
 
 	};
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	public double impostoIsento(double valor) {
+	public int impostoIsento() {
 
-		valor = 0;
-
-		return (valor);
+		return (0);
 	};
 
 	public int getId() {

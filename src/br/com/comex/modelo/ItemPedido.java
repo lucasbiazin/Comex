@@ -1,9 +1,10 @@
 package br.com.comex.modelo;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ItemPedido {
-	
-	private static final AtomicInteger count = new AtomicInteger(0); 
+
+	private static final AtomicInteger count = new AtomicInteger(0);
 	private int id;
 	private double precoUnitario;
 	private int quantidade;
@@ -12,8 +13,8 @@ public class ItemPedido {
 	private double desconto;
 	private int tipoDesconto = 0;
 
-	public ItemPedido( double precoUnitario, int quantidade, Produto produtoItemPedido, Pedido pedido,
-			double desconto, int tipoDesconto) {
+	public ItemPedido(double precoUnitario, int quantidade, Produto produtoItemPedido, Pedido pedido, double desconto,
+			int tipoDesconto) {
 
 		this.id = count.incrementAndGet();
 		this.precoUnitario = precoUnitario;
@@ -22,7 +23,7 @@ public class ItemPedido {
 		this.pedido = pedido;
 		this.desconto = desconto;
 		this.tipoDesconto = tipoDesconto;
-		
+
 	}
 
 	public double filtraDescontos() {
@@ -40,13 +41,10 @@ public class ItemPedido {
 		}
 		return 0;
 	}
-	
-	
-	public  int getId() {
+
+	public int getId() {
 		return id;
 	}
-
-
 
 	public double getPrecoUnitario() {
 		return precoUnitario;
@@ -74,6 +72,18 @@ public class ItemPedido {
 
 	public double SemDesconto() {
 		return this.precoUnitario * this.quantidade;
+	}
+
+	@Override
+	public String toString() {
+
+		return "" + "|" + this.id + "|" + "  " + "|" + this.produtoItemPedido.getNome() + "|" + "  " + "        " + "|"
+				+ this.quantidade + "|" + "  "
+
+				+ "           " + "|" + this.getDesconto() + "|" + "                      " +
+
+				"|" + "" + this.getTipoDesconto() + " " + "|" + "              " + "R$" + this.SemDesconto() + "|" + " "
+				+ "              " + "R$" + "|" + this.filtraDescontos() + "|";
 	}
 
 }

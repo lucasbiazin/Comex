@@ -155,4 +155,13 @@ public class Cliente {
 		return estado;
 	}
 
+	@Override
+	public String toString() {
+
+		return "|" + this.id + "" + "|" + "  " + this.nome + "   " + "|" + this.cpf + "|" + "    " + this.telefone + "|"
+				+ "   " + this.rua + "|" + "       " + "|" + this.numeroPredial + "|" + "      " + "" + this.complemento
+				+ "     " + "|" + this.bairro + "|" + "   " + "" + "|" + this.cidade + "|" + "        " + "|"
+				+ this.estado;
+	}
+
 }

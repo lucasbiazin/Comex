@@ -1,4 +1,5 @@
 package br.com.comex.modelo;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Produto {
@@ -11,11 +12,7 @@ public class Produto {
 	int quantidadeEstoque;
 	Categoria categoria;
 
-
-	
-	public Produto( String nome, String descricao, double precoUnitario, int quantidadeEstoque,
-			Categoria categoria) {
-		
+	public Produto(String nome, String descricao, double precoUnitario, int quantidadeEstoque, Categoria categoria) {
 
 		this.id = count.incrementAndGet();
 
@@ -28,41 +25,35 @@ public class Produto {
 		this.precoUnitario = precoUnitario;
 
 		this.quantidadeEstoque = quantidadeEstoque;
-		
-		
+
 		this.categoria = categoria;
 	}
 
-
-
-
-	
 	public void validaCategoria(Categoria categoria) {
-		
-		if (categoria == null) {throw new IllegalArgumentException("A categoria deve ser preenchida");} 
+
+		if (categoria == null) {
+			throw new IllegalArgumentException("A categoria deve ser preenchida");
+		}
 	}
 
 	public double CalculaTotal(double preco, double estoque) {
 
 		preco = precoUnitario;
 		estoque = quantidadeEstoque;
-		double  valor;
+		double valor;
 
 		valor = preco * estoque;
-	
+
 		return valor;
-		
+
 	}
-	
-	
+
 	public void validaPrecoUnitario(double produto) {
 		if (precoUnitario < 0) {
 			throw new IllegalArgumentException("O valor deve ser maior que 0");
 		}
 
 	}
-
-	
 
 	public void validaNomeProduto(String nome) {
 
@@ -78,15 +69,12 @@ public class Produto {
 
 	}
 
-
-
 	public double CalculaImposto(double valor) {
 
 		valor = precoUnitario * 0.4;
 
 		return (valor);
 	};
-	
 
 	public double CalculaTotal(double precoUnitario, int quantidadeEstoque) {
 
@@ -94,6 +82,8 @@ public class Produto {
 
 		return (valor);
 	}
+
+	/** Getters and Setters/ **/
 
 	public int getId() {
 		return id;
@@ -146,13 +136,16 @@ public class Produto {
 	public static AtomicInteger getCount() {
 		return count;
 	};
-	
+
+	@Override
+	public String toString() {
+
+		return "ID " + this.id + " - " + "| Nome: " + this.nome + " " + "| Descrição : " + this.descricao + " "
+				+ "| Preço: " + this.precoUnitario + " " + "| Quantidade :" + this.quantidadeEstoque + " "
+				+ "| Categoria :" + this.categoria.getNome() + "     "
+				+ String.format("%.2f", this.CalculaImposto(precoUnitario)) + "          "
+				+ String.format("%.2f", this.CalculaTotal(precoUnitario, quantidadeEstoque));
+
 	}
 
-	/** Getters and Setters/ **/
-
-
-
-
-
-
+}

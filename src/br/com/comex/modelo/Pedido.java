@@ -1,29 +1,22 @@
 package br.com.comex.modelo;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 
+public class Pedido {
 
-public class Pedido   {
-	
-	private static final AtomicInteger count = new AtomicInteger(0); 
+	private static final AtomicInteger count = new AtomicInteger(0);
 	int id;
 	String data;
 	Cliente cliente;
-	
 
+	public Pedido(String data, Cliente cliente) {
 
-
-
-	
-
-	public Pedido( String data, Cliente cliente) {
-		
 		this.id = count.incrementAndGet();
 		this.data = data;
 		this.cliente = cliente;
-		
-	
+
 	}
 
 	public final static DateTimeFormatter formataData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -57,7 +50,11 @@ public class Pedido   {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
+
+	@Override
+	public String toString() {
+
+		return "|" + this.id + "|" + "     " + "|" + this.data + "|" + "       " + "|" + this.cliente.getNome() + "|";
 	}
 
-
+}

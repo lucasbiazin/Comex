@@ -13,6 +13,8 @@ public class Categoria {
 	public Categoria(String nome, Status status) {
 		validaID(id);
 		this.id = count.incrementAndGet();
+		
+		
 		validaNome(nome);
 		this.setNome(nome);
 
@@ -20,13 +22,19 @@ public class Categoria {
 		this.status = status;
 
 	}
+
+	public static boolean validaString(String nome) {
+       if ( nome.matches("[a-zA-Z-]+"));
+       throw new IllegalArgumentException("Só são aceitos nomes com letras");
+    }
+	
 	
 	
 	public void validaStatus(Status status) {
-		
+
 		if (status == null)
 			throw new IllegalArgumentException("Status não pode ser nulo");
-		
+
 	}
 
 	public void validaID(int id) {
@@ -51,8 +59,6 @@ public class Categoria {
 		this.id = id;
 	}
 
-	
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -67,6 +73,12 @@ public class Categoria {
 
 	public String getNome() {
 		return nome;
+	}
+
+	@Override
+	public String toString() {
+
+		return this.id + " - " + this.nome + " " + "Status :" + this.status;
 	}
 
 }
