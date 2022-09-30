@@ -55,7 +55,7 @@ public class Cliente {
 	
 	public void verificaTelefone(String telefone) {
 		if ( telefone == null | telefone.length() < 11 | telefone.length() > 16 )
-			throw new ComexExcepetion("Ot elefone não pode ser nulo e deve conter  11 ou 16 numeros");
+			throw new ComexExcepetion("O telefone não pode ser nulo e deve conter  11 ou 16 numeros");
 	
 		if (!telefone.matches("^\\([0-9]{2}\\) [0-9]{1} ([0-9]{4}-[0-9]{4})$")) 
 			throw new ComexExcepetion("O telefone deve ser formatado  (99) 9 9999-9999");
