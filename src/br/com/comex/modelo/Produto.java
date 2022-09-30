@@ -16,6 +16,7 @@ public class Produto {
 
 		this.id = count.incrementAndGet();
 
+		verificaNome(nome);
 		validaNomeProduto(nome);
 		this.nome = nome;
 
@@ -28,6 +29,14 @@ public class Produto {
 
 		this.categoria = categoria;
 	}
+	
+	
+	
+	public void verificaNome(String nome) throws ComexExcepetion {
+		if (nome.matches("[0-9].*")) 
+			throw new ComexExcepetion("O nome deve conter apenas letras!");
+	}
+	
 
 	public void validaCategoria(Categoria categoria) {
 

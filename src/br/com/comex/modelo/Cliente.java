@@ -21,17 +21,18 @@ public class Cliente {
 	// Construtor
 
 	public Cliente(String nome, String cpf, String telefone, String rua, String numeroPredial, String complemento,
-			String bairro, String cidade, Estados estado) {
+			String bairro, String cidade, Estados estado) throws ComexExcepetion {
 		validaIDCliente(id);
 		this.id = count.incrementAndGet();
 
+		verificaNome(nome);
 		validaNomeCliente(nome);
 		this.nome = nome;
 
 		validaCPF(cpf);
 		this.cpf = cpf;
 
-		validaTelefone(telefone);
+		verificaTelefone(telefone);
 		this.telefone = telefone;
 
 		validaRua(rua);
@@ -51,13 +52,31 @@ public class Cliente {
 		validaEstado(estado);
 		this.estado = estado;
 	}
-
-	public void validaTelefone(String telefone) {
-
-		if (telefone.length() < 11 | telefone.length() > 16)
-			throw new IllegalArgumentException("telefone deve conter de 11 a 16 caracteres");
-
+	
+	public void verificaTelefone(String telefone) {
+		if ( telefone == null | telefone.length() < 11 | telefone.length() > 16 )
+			throw new ComexExcepetion("Ot elefone não pode ser nulo e deve conter  11 ou 16 numeros");
+	
+		if (!telefone.matches("^\\([0-9]{2}\\) [0-9]{1} ([0-9]{4}-[0-9]{4})$")) 
+			throw new ComexExcepetion("O telefone deve ser formatado  (99) 9 9999-9999");
 	}
+	
+	public void verificaCPF(String cpf) {
+		if (cpf == null | cpf.length() < 11 | cpf.length() > 14  )
+			throw new ComexExcepetion("cpf deve conter de 11 a 14 caracteres e não pode ser nulo");
+		
+		if (!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$")) 
+			throw new ComexExcepetion("O CPF deve conter '.' e '-' ");
+	}
+	
+	
+	
+	public void verificaNome(String nome) throws ComexExcepetion {
+		if (nome == null | nome.matches("[0-9].*")) 
+			throw new ComexExcepetion("O nome deve conter apenas letras!");
+	}
+
+
 
 	public void validaCPF(String cpf) {
 
