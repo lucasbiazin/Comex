@@ -92,6 +92,7 @@ public class LeitorPedidosCsv {
 		System.out.println("Total de categorias: " + categorias.size());
 
 		sc.close();
-		return "teste";
+		return null;
+	
 	}
 }
