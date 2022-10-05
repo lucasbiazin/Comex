@@ -39,7 +39,7 @@ public class LeitorPedidosCsv {
 			totalLinhas++;
 		}
 
-		System.out.println("Total de pedidos: " + listaPedidos.size());
+		System.out.println("Total de pedidos:  " + listaPedidos.size());
 
 		reader.close();
 	}

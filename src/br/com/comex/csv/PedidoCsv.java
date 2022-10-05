@@ -48,12 +48,12 @@ public class PedidoCsv {
     @Override
     public String toString() {
         return "Pedido{" +
-                "categoria='" + categoria + '\'' +
-                ", produto='" + produto + '\'' +
-                ", cliente='" + cliente + '\'' +
-                ", preco=" + preco +
-                ", quantidade=" + quantidade +
-                ", data=" + data +
+                "categoria ='" + categoria + '\'' +
+                ", produto ='" + produto + '\'' +
+                ", cliente ='" + cliente + '\'' +
+                ", preco= " + preco +
+                ", quantidade= " + quantidade +
+                ", data= " + data +
                 '}';
     }
 
