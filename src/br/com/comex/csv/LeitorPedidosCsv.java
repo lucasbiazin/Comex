@@ -2,21 +2,18 @@ package br.com.comex.csv;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class LeitorPedidosCsv {
 
-	public static void main(String[] args) throws IOException {
+	
+	public List<PedidoCsv> lerPedidos() throws Exception {
+		List<PedidoCsv> pedidos= new ArrayList<PedidoCsv>();
 
-		
-
-		List<PedidoCsv> listaPedidos = new ArrayList<PedidoCsv>();
-
-		FileInputStream file = new FileInputStream("src/br/com/comex/csv/Pedidos.csv");
-		InputStreamReader reader = new InputStreamReader(file);
+		FileInputStream pedidoCsvFile = new FileInputStream("Pedidos.csv");
+		InputStreamReader reader = new InputStreamReader(pedidoCsvFile);
 		BufferedReader buffered = new BufferedReader(reader);
 
 		String linhaBf = buffered.readLine();
@@ -33,15 +30,16 @@ public class LeitorPedidosCsv {
 			String Cliente = vetor[5];
 
 			PedidoCsv pedido = new PedidoCsv(categoria, produto, Cliente, preco, quantidade, data);
-			listaPedidos.add(pedido);
+			pedidos.add(pedido);
 
 			linhaBf = buffered.readLine();
-			
+
 		}
 
-		System.out.println("Total de pedidos:  " + listaPedidos.size());
+		System.out.println("Total de pedidos:  " + pedidos.size());
 
 		reader.close();
+		return pedidos;
 	}
 
 }
