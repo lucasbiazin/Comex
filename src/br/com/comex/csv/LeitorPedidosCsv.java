@@ -11,9 +11,9 @@ public class LeitorPedidosCsv {
 
 	public static void main(String[] args) throws IOException {
 
-		int totalLinhas = 1;
+		
 
-		List listaPedidos = new ArrayList<PedidoCsv>();
+		List<PedidoCsv> listaPedidos = new ArrayList<PedidoCsv>();
 
 		FileInputStream file = new FileInputStream("src/br/com/comex/csv/Pedidos.csv");
 		InputStreamReader reader = new InputStreamReader(file);
@@ -27,16 +27,16 @@ public class LeitorPedidosCsv {
 			String[] vetor = linhaBf.split(",");
 			String categoria = vetor[0];
 			String produto = vetor[1];
-			Double preco = Double.parseDouble(vetor[2]);
-			int quantidade = Integer.parseInt(vetor[3]);
+			String preco = vetor[2];
+			String quantidade = vetor[3];
 			String data = vetor[4];
 			String Cliente = vetor[5];
 
-			PedidoCsv pedido = new PedidoCsv(categoria, produto, Cliente, produto, Cliente, data);
+			PedidoCsv pedido = new PedidoCsv(categoria, produto, Cliente, preco, quantidade, data);
 			listaPedidos.add(pedido);
 
 			linhaBf = buffered.readLine();
-			totalLinhas++;
+			
 		}
 
 		System.out.println("Total de pedidos:  " + listaPedidos.size());
