@@ -36,13 +36,13 @@ public class LeitorPedidosCsv {
 
 		}
 
-		System.out.println("Total de pedidos:  " + pedidos.size());
+		System.out.println("Total de pedidos: " + pedidos.size());
 
 		reader.close();
 		return pedidos;
 	}
 
-	public  List<PedidoCsv> CalculaTotalPedidos() throws FileNotFoundException  {
+	public List<PedidoCsv> CalculaTotalPedidos() throws FileNotFoundException {
 
 		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
 		InputStreamReader file = new InputStreamReader(new FileInputStream("Pedidos.csv"));
@@ -63,8 +63,35 @@ public class LeitorPedidosCsv {
 
 		sc.close();
 		return pedidos;
-	
-		
+
 	}
 
+	public String CalculaTotalCategorias() throws FileNotFoundException {
+
+		List<String> categorias = new ArrayList<>();
+
+		InputStreamReader file = new InputStreamReader(new FileInputStream("Pedidos.csv"));
+
+		Scanner sc = new Scanner(file);
+
+		sc.nextLine();
+
+		while (sc.hasNextLine()) {
+
+			String line = sc.nextLine();
+			String[] vetorCategorias = line.split(",");
+			String categoria = vetorCategorias[0];
+
+			if (!categorias.contains(categoria)) {
+
+				categorias.add(categoria);
+			}
+
+		}
+
+		System.out.println("Total de categorias: " + categorias.size());
+
+		sc.close();
+		return "teste";
+	}
 }
