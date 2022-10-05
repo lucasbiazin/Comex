@@ -21,6 +21,11 @@ public class PedidoCsv {
     }
 
 
+	public PedidoCsv() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public String getCategoria() {
         return categoria;
     }
@@ -45,8 +50,8 @@ public class PedidoCsv {
         return data;
     }
 
-    @Override
-    public String toString() {
+   
+    public String getPedido() {
         return "Pedido{" +
                 "categoria ='" + categoria + '\'' +
                 ", produto ='" + produto + '\'' +

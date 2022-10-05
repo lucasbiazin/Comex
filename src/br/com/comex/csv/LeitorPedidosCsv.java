@@ -2,18 +2,18 @@ package br.com.comex.csv;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class LeitorPedidosCsv {
 
-	
 	public List<PedidoCsv> lerPedidos() throws Exception {
-		List<PedidoCsv> pedidos= new ArrayList<PedidoCsv>();
+		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
 
-		FileInputStream pedidoCsvFile = new FileInputStream("Pedidos.csv");
-		InputStreamReader reader = new InputStreamReader(pedidoCsvFile);
+		InputStreamReader reader = new InputStreamReader(new FileInputStream("Pedidos.csv"));
 		BufferedReader buffered = new BufferedReader(reader);
 
 		String linhaBf = buffered.readLine();
@@ -40,6 +40,31 @@ public class LeitorPedidosCsv {
 
 		reader.close();
 		return pedidos;
+	}
+
+	public  List<PedidoCsv> CalculaTotalPedidos() throws FileNotFoundException  {
+
+		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
+		InputStreamReader file = new InputStreamReader(new FileInputStream("Pedidos.csv"));
+		Scanner sc = new Scanner(file);
+		int total = 0;
+
+		sc.nextLine();
+
+		while (sc.hasNextLine()) {
+			String line = sc.nextLine();
+			String[] vetorCalculaTotalProdutos = line.split(",");
+			int quantidade = Integer.parseInt(vetorCalculaTotalProdutos[3]);
+
+			total = total + quantidade;
+
+		}
+		System.out.println("Total de produtos vendidos: " + total);
+
+		sc.close();
+		return pedidos;
+	
+		
 	}
 
 }
