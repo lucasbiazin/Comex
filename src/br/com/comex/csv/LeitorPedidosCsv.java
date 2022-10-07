@@ -4,13 +4,19 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class LeitorPedidosCsv {
+	Locale localeBR = new Locale("pt","BR");
+	NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
+	
 
-	public List<PedidoCsv> lerPedidos() throws Exception {
+	public static List<PedidoCsv> lerPedidos() throws Exception {
 		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
 
 		InputStreamReader reader = new InputStreamReader(new FileInputStream("Pedidos.csv"));
@@ -36,63 +42,61 @@ public class LeitorPedidosCsv {
 
 		}
 
-		System.out.println("Total de pedidos: " + pedidos.size());
-
 		reader.close();
 		return pedidos;
 	}
 
-	public List<PedidoCsv> CalculaTotalPedidos() throws FileNotFoundException {
+	public void totalCategorias(List<PedidoCsv> pedidos) throws FileNotFoundException {
 
-		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
-		InputStreamReader file = new InputStreamReader(new FileInputStream("Pedidos.csv"));
-		Scanner sc = new Scanner(file);
-		int total = 0;
+		List<String> categoriasRecebidas = new ArrayList<>();
 
-		sc.nextLine();
-
-		while (sc.hasNextLine()) {
-			String line = sc.nextLine();
-			String[] vetorCalculaTotalProdutos = line.split(",");
-			int quantidade = Integer.parseInt(vetorCalculaTotalProdutos[3]);
-
-			total = total + quantidade;
-
+		for (PedidoCsv pedidosCsv : pedidos) {
+			String categoria = pedidosCsv.getCategoria();
+			if (!categoriasRecebidas.contains(categoria)) {
+				categoriasRecebidas.add(categoria);
+			}
 		}
-		System.out.println("Total de produtos vendidos: " + total);
 
-		sc.close();
-		return pedidos;
+		System.out.println(categoriasRecebidas.size());
 
 	}
 
-	public String CalculaTotalCategorias() throws FileNotFoundException {
+	public void quantidadePedidos() throws Exception {
 
-		List<String> categorias = new ArrayList<>();
+		List<PedidoCsv> pedidos = lerPedidos();
 
-		InputStreamReader file = new InputStreamReader(new FileInputStream("Pedidos.csv"));
+		System.out.println("Total de pedidos: " + pedidos.size());
 
-		Scanner sc = new Scanner(file);
-
-		sc.nextLine();
-
-		while (sc.hasNextLine()) {
-
-			String line = sc.nextLine();
-			String[] vetorCategorias = line.split(",");
-			String categoria = vetorCategorias[0];
-
-			if (!categorias.contains(categoria)) {
-
-				categorias.add(categoria);
-			}
+		{
 
 		}
 
-		System.out.println("Total de categorias: " + categorias.size());
+	}
 
-		sc.close();
-		return null;
+	public void totalProdutosVendidos(List<PedidoCsv> item) {
+
+		int total = 0;
+
+		for (PedidoCsv pedidosCsv : item) {
+			String quantidade = pedidosCsv.getQuantidade();
+
+			total = total + Integer.parseInt(pedidosCsv.getQuantidade());
+
+		}
+		System.out.println(total);
+
+	}
+	public void valorTotalVendidos(List<PedidoCsv> item) {
 	
+		double total = 0;
+
+		for (PedidoCsv pedidosCsv : item) {
+			double quantidade =  Double.parseDouble(pedidosCsv.getQuantidade());
+			double preco =  Double.parseDouble(pedidosCsv.getPreco());
+			
+		total = total + quantidade * preco;
+		}
+		System.out.println(dinheiro.format(total));
+		
 	}
 }
