@@ -12,9 +12,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class LeitorPedidosCsv {
-	Locale localeBR = new Locale("pt","BR");
+	Locale localeBR = new Locale("pt", "BR");
 	NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
-	
 
 	public static List<PedidoCsv> lerPedidos() throws Exception {
 		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
@@ -86,17 +85,18 @@ public class LeitorPedidosCsv {
 		System.out.println(total);
 
 	}
+
 	public void valorTotalVendidos(List<PedidoCsv> item) {
-	
+
 		double total = 0;
 
 		for (PedidoCsv pedidosCsv : item) {
-			double quantidade =  Double.parseDouble(pedidosCsv.getQuantidade());
-			double preco =  Double.parseDouble(pedidosCsv.getPreco());
-			
-		total = total + quantidade * preco;
+			double quantidade = Double.parseDouble(pedidosCsv.getQuantidade());
+			double preco = Double.parseDouble(pedidosCsv.getPreco());
+
+			total = total + quantidade * preco;
 		}
 		System.out.println(dinheiro.format(total));
-		
+
 	}
 }

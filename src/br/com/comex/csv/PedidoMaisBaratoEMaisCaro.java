@@ -12,11 +12,14 @@ public class PedidoMaisBaratoEMaisCaro implements Comparator<PedidoCsv> {
 
 		double preco1 = Double.parseDouble(p1.getPreco());
 		double preco2 = Double.parseDouble(p2.getPreco());
+		
+		preco1 = preco1 * quantidade1;
+		preco2 = preco2 * quantidade2;
 
-		if (quantidade1 * preco1 == quantidade2 * preco2) {
+		if ( preco1 ==  preco2) {
 
 			return 0;
-		} else if (quantidade1 * preco1 > quantidade2 * preco2) {
+		} else if ( preco1 >  preco2) {
 
 			return 1;
 		} else {
