@@ -23,9 +23,8 @@ public class MainListagemCategoria {
 		while (rst.next()) {
 
 			String nome = rst.getString("NOME");
-			System.out.println(nome);
 			String status = rst.getString("STATUS");
-			System.out.println(status);
+			System.out.println(nome + ": " + status);
 
 		}
 		conexao.close();

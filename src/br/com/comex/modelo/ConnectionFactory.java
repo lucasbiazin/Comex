@@ -6,23 +6,11 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-	public static java.sql.Connection criaConexao() throws  SQLException {
-		Connection connection = null;
+	public Connection criaConexao() throws SQLException {
 
-		
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String username = "system";
-		String password = "1010";
-
-	
-		connection = DriverManager.getConnection(url, username, password);
-
-		System.out.println("Conexão efetuada com sucesso!!!!");
-
-	 
-		return connection;
-		
+		return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", 
+				"system", "1010");
 
 	}
-	
+
 }

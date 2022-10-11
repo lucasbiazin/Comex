@@ -15,13 +15,13 @@ public class MainAtualizacaoCategoria {
 
 		Statement stm = conexao.createStatement();
 
-		stm.execute("DELETE comex.CATEGORIA  WHERE ID = 'INATIVA'");
-		
+		boolean rst = stm.execute("UPDATE comex.CATEGORIA SET nome = 'LIVROS TÉCNICOS' WHERE id = 3");
+		System.out.println(rst);
+
 		System.out.println("Alterado com sucesso!!!");
-		
+
 		conexao.close();
-		
-		
+
 	}
 
 }
