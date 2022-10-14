@@ -1,18 +1,29 @@
 package br.com.comex.modelo;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import br.com.comex.enums.TipoProduto;
 
 public class Produto {
 
 	private static final AtomicInteger count = new AtomicInteger(0);
-	int id;
-	String nome;
-	String descricao;
-	double precoUnitario;
-	int quantidadeEstoque;
-	Categoria categoria;
+	private  int id;
+	private String nome;
+	private String descricao;
+	private double precoUnitario;
+	private int quantidadeEstoque;
+	private Categoria categoria;
+	private TipoProduto tipo;
+	
+	Locale localeBR = new Locale("pt", "BR");
+	NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
 
-	public Produto(String nome, String descricao, double precoUnitario, int quantidadeEstoque, Categoria categoria) {
+	
+
+	public Produto(String nome, String descricao, double precoUnitario, int quantidadeEstoque, Categoria categoria,
+			TipoProduto tipo) {
 
 		this.id = count.incrementAndGet();
 
@@ -28,15 +39,18 @@ public class Produto {
 		this.quantidadeEstoque = quantidadeEstoque;
 
 		this.categoria = categoria;
+		
+		this.tipo = tipo;
 	}
+
+
+
 	
-	
-	
+
 	public void verificaNome(String nome) throws ComexExcepetion {
-		if (nome.matches("[0-9].*")) 
+		if (nome.matches("[0-9].*"))
 			throw new ComexExcepetion("O nome deve conter apenas letras!");
 	}
-	
 
 	public void validaCategoria(Categoria categoria) {
 
@@ -134,6 +148,31 @@ public class Produto {
 		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
+	public static AtomicInteger getCount() {
+		return count;
+	};
+
+	@Override
+	public String toString() {
+
+		return "ID " + getId() 
+				+ "| Nome: " + getNome() + " " 
+				+ "| Descrição: " + getDescricao() + " "
+				+ "| Preço: " + dinheiro.format(getPrecoUnitario()) + " "
+				+ "| Quantidade: " + getQuantidadeEstoque() + " "
+				+ "| Categoria: " + getCategoria().getId() + " "
+				+System.lineSeparator();}
+
+	
+
+	public TipoProduto getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoProduto tipo) {
+		this.tipo = tipo;
+	}
+	
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -142,19 +181,11 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
-	public static AtomicInteger getCount() {
-		return count;
-	};
-
-	@Override
-	public String toString() {
-
-		return "ID " + this.id + " - " + "| Nome: " + this.nome + " " + "| Descrição : " + this.descricao + " "
-				+ "| Preço: " + this.precoUnitario + " " + "| Quantidade :" + this.quantidadeEstoque + " "
-				+ "| Categoria :" + this.categoria.getNome() + "     "
-				+ String.format("%.2f", this.CalculaImposto(precoUnitario)) + "          "
-				+ String.format("%.2f", this.CalculaTotal(precoUnitario, quantidadeEstoque));
-
+	public int getCategoriaID(int id ) {
+		
+		return categoria.getId();
 	}
+	
+	
 
 }

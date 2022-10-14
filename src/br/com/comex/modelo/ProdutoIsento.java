@@ -1,17 +1,19 @@
 package br.com.comex.modelo;
 
+import br.com.comex.enums.TipoProduto;
+
 public class ProdutoIsento extends Produto {
 
 	public ProdutoIsento(String nome, String descricao, double precoUnitario, int quantidadeEstoque,
-			Categoria categoria) {
-		super(nome, descricao, precoUnitario, quantidadeEstoque, categoria);
+			Categoria categoria, TipoProduto tipo ) {
+		super(nome, descricao, precoUnitario, quantidadeEstoque, categoria, tipo);
 		// TODO Auto-generated constructor stub
 	}
 
 	public double calculaTotalIsentos(double preco, double estoque) {
 
-		preco = precoUnitario;
-		estoque = quantidadeEstoque;
+		preco = getPrecoUnitario();
+		estoque = getQuantidadeEstoque();
 		double valor;
 
 		valor = preco * estoque;
@@ -26,27 +28,27 @@ public class ProdutoIsento extends Produto {
 	};
 
 	public int getId() {
-		return this.id;
+		return super.getId();
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		super.setId(id); 
 	}
 
 	public String getNome() {
-		return nome;
+		return super.getNome();
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		setPrecoUnitario(getPrecoUnitario());
 	}
 
 	public String getDescricao() {
-		return descricao;
+		return super.getDescricao();
 	}
 
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		super.setDescricao(descricao); 
 	}
 
 	@Override
@@ -56,23 +58,23 @@ public class ProdutoIsento extends Produto {
 	}
 
 	public void setPrecoUnitario(double precoUnitario) {
-		this.precoUnitario = precoUnitario;
+		super.setPrecoUnitario(precoUnitario); 
 	}
 
 	public int getQuantidadeEstoque() {
-		return quantidadeEstoque;
+		return super.getId();
 	}
 
 	public void setQuantidadeEstoque(int quantidadeEstoque) {
-		this.quantidadeEstoque = quantidadeEstoque;
+		super.setQuantidadeEstoque(quantidadeEstoque); 
 	}
 
 	public Categoria getCategoria() {
-		return categoria;
+		return super.getCategoria();
 	}
 
 	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+		super.setCategoria(categoria);
 	}
 
 }

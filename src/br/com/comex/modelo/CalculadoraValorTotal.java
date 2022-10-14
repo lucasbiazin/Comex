@@ -2,7 +2,7 @@ package br.com.comex.modelo;
 
 public class CalculadoraValorTotal extends ItemPedido {
 
-	double valorTotal;
+	private double valorTotal;
 
 	public CalculadoraValorTotal(double precoUnitario, int quantidade, Produto produtoItemPedido, Pedido pedido,
 			double desconto, int tipoDesconto, double valorTotal) {

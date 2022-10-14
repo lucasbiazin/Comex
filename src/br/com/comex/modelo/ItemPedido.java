@@ -27,13 +27,17 @@ public class ItemPedido {
 	}
 
 	public double filtraDescontos() {
+		
 		if (this.tipoDesconto == 0) {
 			return this.precoUnitario * this.quantidade;
+			
 		} else if (this.quantidade > 10) {
 			double quantidade;
+			
 			quantidade = this.precoUnitario * this.quantidade * 0.10;
 			return this.precoUnitario * this.quantidade - quantidade;
 		} else if (this.tipoDesconto == 1) {
+			
 			double promocao;
 			promocao = this.precoUnitario * this.quantidade * 0.20;
 			return this.precoUnitario * this.quantidade - promocao;

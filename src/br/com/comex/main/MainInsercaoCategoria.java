@@ -20,8 +20,8 @@ public class MainInsercaoCategoria {
 
 		System.out.println("Categoria inserida com sucesso!");
 
+		
 		conexao.close();
-
 	}
 
 }

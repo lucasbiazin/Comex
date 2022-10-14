@@ -1,21 +1,19 @@
 package br.com.comex.modelo;
 
-import br.com.comex.enums.Status;
+import br.com.comex.enums.StatusCategoria;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Categoria {
 
 	private static final AtomicInteger count = new AtomicInteger(0);
-	int id;
+	private int id;
 	private String nome;
-	Status status;
+	private StatusCategoria status;
 
-	public Categoria(String nome, Status status) throws ComexExcepetion{
+	public Categoria(String nome, StatusCategoria status) throws ComexExcepetion {
 		validaID(id);
 		this.id = count.incrementAndGet();
-		
-		
-		validaNome(nome);
+
 		this.setNome(nome);
 
 		validaStatus(status);
@@ -23,28 +21,32 @@ public class Categoria {
 
 	}
 
+	public Categoria(int id) {
+		super();
+		this.id = id;
+	}
+
 	public static boolean validaString(String nome) {
-       if ( nome.matches("[a-zA-Z-]+"));
-       throw new IllegalArgumentException("Só são aceitos nomes com letras");
-    }
-	
-	
-	
-	public void validaStatus(Status status) throws ComexExcepetion{
+		if (nome.matches("[a-zA-Z-]+"))
+			;
+		throw new IllegalArgumentException("Só são aceitos nomes com letras");
+	}
+
+	public void validaStatus(StatusCategoria status) throws ComexExcepetion {
 
 		if (status == null)
-		throw new ComexExcepetion("Status não pode ser nulo");
+			throw new ComexExcepetion("Status não pode ser nulo");
 
 	}
 
-	public void validaID(int id) throws ComexExcepetion{
+	public void validaID(int id) throws ComexExcepetion {
 		if (id < 0) {
 			throw new ComexExcepetion("ID inválido.");
 		}
 
 	}
 
-	public void validaNome(String nome) throws ComexExcepetion{
+	public void validaNome(String nome) throws ComexExcepetion {
 
 		if (nome.length() < 3) {
 			throw new ComexExcepetion("Nome deve conter mais que 3 caracteres");
@@ -63,11 +65,11 @@ public class Categoria {
 		this.nome = nome;
 	}
 
-	public Status isStatus() {
+	public StatusCategoria isStatus() {
 		return status;
 	}
 
-	public void setStatus(Status status) {
+	public void setStatus(StatusCategoria status) {
 		this.status = status;
 	}
 
@@ -78,7 +80,12 @@ public class Categoria {
 	@Override
 	public String toString() {
 
-		return this.id + " - " + this.nome + " " + "Status :" + this.status;
+		return this.id + " - " + this.nome + " " + "Status :" + this.status + System.lineSeparator();
+	}
+
+	public int toString2() {
+
+		return this.id;
 	}
 
 }

@@ -7,9 +7,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Pedido {
 
 	private static final AtomicInteger count = new AtomicInteger(0);
-	int id;
-	String data;
-	Cliente cliente;
+	private int id;
+	private String data;
+	private Cliente cliente;
 
 	public Pedido(String data, Cliente cliente) throws ComexExcepetion {
 

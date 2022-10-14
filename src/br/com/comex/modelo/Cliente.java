@@ -52,31 +52,27 @@ public class Cliente {
 		validaEstado(estado);
 		this.estado = estado;
 	}
-	
+
 	public void verificaTelefone(String telefone) {
-		if ( telefone == null | telefone.length() < 11 | telefone.length() > 16 )
+		if (telefone == null | telefone.length() < 11 | telefone.length() > 16)
 			throw new ComexExcepetion("O telefone não pode ser nulo e deve conter  11 ou 16 numeros");
-	
-		if (!telefone.matches("^\\([0-9]{2}\\) [0-9]{1} ([0-9]{4}-[0-9]{4})$")) 
+
+		if (!telefone.matches("^\\([0-9]{2}\\) [0-9]{1} ([0-9]{4}-[0-9]{4})$"))
 			throw new ComexExcepetion("O telefone deve ser formatado  (99) 9 9999-9999");
 	}
-	
+
 	public void verificaCPF(String cpf) {
-		if (cpf == null | cpf.length() < 11 | cpf.length() > 14  )
+		if (cpf == null | cpf.length() < 11 | cpf.length() > 14)
 			throw new ComexExcepetion("cpf deve conter de 11 a 14 caracteres e não pode ser nulo");
-		
-		if (!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$")) 
+
+		if (!cpf.matches("^([0-9]{3}\\.?){3}-?[0-9]{2}$"))
 			throw new ComexExcepetion("O CPF deve conter '.' e '-' ");
 	}
-	
-	
-	
+
 	public void verificaNome(String nome) throws ComexExcepetion {
-		if (nome == null | nome.matches("[0-9].*")) 
+		if (nome == null | nome.matches("[0-9].*"))
 			throw new ComexExcepetion("O nome deve conter apenas letras!");
 	}
-
-
 
 	public void validaCPF(String cpf) {
 
@@ -134,6 +130,10 @@ public class Cliente {
 
 	// Getters
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -177,10 +177,12 @@ public class Cliente {
 	@Override
 	public String toString() {
 
-		return "|" + this.id + "" + "|" + "  " + this.nome + "   " + "|" + this.cpf + "|" + "    " + this.telefone + "|"
-				+ "   " + this.rua + "|" + "       " + "|" + this.numeroPredial + "|" + "      " + "" + this.complemento
-				+ "     " + "|" + this.bairro + "|" + "   " + "" + "|" + this.cidade + "|" + "        " + "|"
-				+ this.estado;
+		return "-------------------------------------------------------------------------------------------------------"
+				+ "----------------------------------------------"
+				+ System.lineSeparator() + "|" + this.id + "" + "|" + "  " + this.nome + "   " + "|" + this.cpf + "|"
+				+ "    " + this.telefone + "|" + "   " + this.rua + "|" + "       " + "|" + this.numeroPredial + "|"
+				+ "      " + "" + this.complemento + "     " + "|" + this.bairro + "|" + "   " + "" + "|" + this.cidade
+				+ "|" + "        " + "|" + this.estado + "" + System.lineSeparator();
 	}
 
 }

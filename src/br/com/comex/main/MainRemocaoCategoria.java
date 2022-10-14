@@ -1,6 +1,7 @@
 package br.com.comex.main;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -13,13 +14,16 @@ public class MainRemocaoCategoria {
 		ConnectionFactory fac = new ConnectionFactory();
 		Connection conexao = fac.criaConexao();
 
-		Statement stm = conexao.createStatement();
+		String sql = "DELETE FROM comex.CATEGORIA where status = 'INATIVA' ";
 
-		stm.execute("DELETE FROM comex.CATEGORIA where status = 'INATIVA' ");
+		PreparedStatement ppstm = conexao.prepareStatement(sql);
+
+		ppstm.execute();
 
 		System.out.println("Categoria removida com sucesso!!!");
 
 		conexao.close();
+		ppstm.close();
 
 	}
 
