@@ -53,6 +53,11 @@ public class Cliente {
 		this.estado = estado;
 	}
 
+	public Cliente(int id) {
+		super();
+		this.id = id;
+	}
+
 	public void verificaTelefone(String telefone) {
 		if (telefone == null | telefone.length() < 11 | telefone.length() > 16)
 			throw new ComexExcepetion("O telefone não pode ser nulo e deve conter  11 ou 16 numeros");
@@ -178,11 +183,11 @@ public class Cliente {
 	public String toString() {
 
 		return "-------------------------------------------------------------------------------------------------------"
-				+ "----------------------------------------------"
-				+ System.lineSeparator() + "|" + this.id + "" + "|" + "  " + this.nome + "   " + "|" + this.cpf + "|"
-				+ "    " + this.telefone + "|" + "   " + this.rua + "|" + "       " + "|" + this.numeroPredial + "|"
-				+ "      " + "" + this.complemento + "     " + "|" + this.bairro + "|" + "   " + "" + "|" + this.cidade
-				+ "|" + "        " + "|" + this.estado + "" + System.lineSeparator();
+				+ "----------------------------------------------" + System.lineSeparator() + "|" + this.id + "" + "|"
+				+ "  " + this.nome + "   " + "|" + this.cpf + "|" + "    " + this.telefone + "|" + "   " + this.rua
+				+ "|" + "       " + "|" + this.numeroPredial + "|" + "      " + "" + this.complemento + "     " + "|"
+				+ this.bairro + "|" + "   " + "" + "|" + this.cidade + "|" + "        " + "|" + this.estado + ""
+				+ System.lineSeparator();
 	}
 
 }

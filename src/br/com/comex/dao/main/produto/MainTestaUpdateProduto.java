@@ -15,7 +15,8 @@ public class MainTestaUpdateProduto {
 		ProdutoDAO produtoDao = new ProdutoDAO(conexao);
 		Produto produto = produtoDao.buscaPorId(18);
 
-		produto.setNome("Xioami note 12");
+		produto.setNome("Iphone 12 Pro Max");
+		
 
 		produtoDao.atualizar(produto);
 

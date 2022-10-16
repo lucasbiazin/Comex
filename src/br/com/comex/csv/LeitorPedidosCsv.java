@@ -6,16 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Scanner;
 
 public class LeitorPedidosCsv {
 	Locale localeBR = new Locale("pt", "BR");
 	NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
 
-	public static List<PedidoCsv> lerPedidos() throws Exception {
+	public List<PedidoCsv> lerPedidos() throws Exception {
 		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
 
 		InputStreamReader reader = new InputStreamReader(new FileInputStream("Pedidos.csv"));
@@ -79,7 +77,7 @@ public class LeitorPedidosCsv {
 		for (PedidoCsv pedidosCsv : item) {
 			String quantidade = pedidosCsv.getQuantidade();
 
-			total = total + Integer.parseInt(pedidosCsv.getQuantidade());
+			total = total + Integer.parseInt(quantidade);
 
 		}
 		System.out.println(total);

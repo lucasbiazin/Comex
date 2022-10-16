@@ -20,7 +20,10 @@ public class Produto {
 	Locale localeBR = new Locale("pt", "BR");
 	NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
 
-	
+	public Produto(Integer id) {
+		this.id = id;
+		
+	}
 
 	public Produto(String nome, String descricao, double precoUnitario, int quantidadeEstoque, Categoria categoria,
 			TipoProduto tipo) {

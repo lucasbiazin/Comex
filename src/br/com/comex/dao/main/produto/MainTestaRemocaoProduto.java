@@ -13,7 +13,7 @@ public class MainTestaRemocaoProduto {
 
 		ProdutoDAO produtoDao = new ProdutoDAO(conexao);
 		
-		produtoDao.deletar(11);
+		produtoDao.deletar(16);
 
 		
 		conexao.close();

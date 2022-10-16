@@ -18,11 +18,14 @@ public class ClienteDAO {
 		this.conexao = conexao;
 	}
 
-	public void salvar(Cliente cliente) throws SQLException {
+	public void salvar(Cliente cliente)  {
 
 		String sql = "INSERT INTO comex.CLIENTE(nome, cpf, telefone, rua, numero,"
 				+ " complemento, bairro, cidade, uf) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+		try {
+			
+		
 		PreparedStatement stm = conexao.prepareStatement(sql);
 
 		stm.setString(1, cliente.getNome());
@@ -40,6 +43,9 @@ public class ClienteDAO {
 		System.out.println("Cliente adicionado com sucesso!!!");
 
 		stm.close();
+		} catch (Exception erro) {
+			System.out.println("Erro ao adicionar o cliente " + erro);
+		}
 
 	}
 
@@ -62,6 +68,10 @@ public class ClienteDAO {
 	public void atualizar(Cliente cliente) throws SQLException {
 		String sql = "UPDATE comex.CLIENTE SET nome = ?, cpf = ?, telefone = ?, rua = ?, numero = ?, "
 				+ "complemento = ?, bairro = ?, cidade = ?, uf = ?  where id = ?";
+		
+		try {
+			
+		
 
 		PreparedStatement pstm = conexao.prepareStatement(sql);
 
@@ -80,11 +90,20 @@ public class ClienteDAO {
 
 		System.out.println("Cliente alterado com sucesso!!!");
 		pstm.close();
+		
+		} catch (Exception erro) {
+		System.out.println("Erro ao atualizar cliente "+ erro);
+			
+		}
 
 	}
 
-	public List<Cliente> listar() throws SQLException {
+	public List<Cliente> listar()  {
 		String sql = "SELECT * FROM comex.CLIENTE";
+		
+		try {
+			
+		
 		PreparedStatement comandoPreparado = conexao.prepareStatement(sql);
 
 		List<Cliente> clientes = new ArrayList<>();
@@ -100,10 +119,20 @@ public class ClienteDAO {
 		comandoPreparado.close();
 
 		return clientes;
+		} catch (Exception erro) {
+			System.out.println("Erro ao listar clientes " + erro);
+		}
+		return null;
+		
 
 	}
 	
-	private Cliente populaConta(ResultSet registros) throws SQLException {
+	private Cliente populaConta(ResultSet registros)  {
+		
+		try {
+			
+		
+		
 		Cliente cliente = new Cliente(
 				registros.getString("nome"), 
 				registros.getString("cpf"),
@@ -117,6 +146,11 @@ public class ClienteDAO {
 		
 				cliente.setId(registros.getInt("id"));;
 		return cliente;
+		
+		} catch (Exception erro) {
+			System.out.println("erro ao popular cliente "+ erro);
+		}
+		return null;
 	}
 
 

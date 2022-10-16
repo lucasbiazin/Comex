@@ -1,5 +1,7 @@
 package br.com.comex.modelo;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ItemPedido {
@@ -12,6 +14,10 @@ public class ItemPedido {
 	private Pedido pedido;
 	private double desconto;
 	private int tipoDesconto = 0;
+	private String tipo_desconto;
+
+	Locale localeBR = new Locale("pt", "BR");
+	NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
 
 	public ItemPedido(double precoUnitario, int quantidade, Produto produtoItemPedido, Pedido pedido, double desconto,
 			int tipoDesconto) {
@@ -26,18 +32,34 @@ public class ItemPedido {
 
 	}
 
+	public ItemPedido(double precoUnitario, Integer quantidade, Produto produtoItemPedido, Pedido pedido,
+			double desconto, String tipo_desconto) {
+
+		this.precoUnitario = precoUnitario;
+		this.quantidade = quantidade;
+		this.produtoItemPedido = produtoItemPedido;
+		this.pedido = pedido;
+		this.desconto = desconto;
+		this.tipo_desconto = tipo_desconto;
+	}
+
+	public ItemPedido(Integer id) {
+
+		this.id = id;
+	}
+
 	public double filtraDescontos() {
-		
+
 		if (this.tipoDesconto == 0) {
 			return this.precoUnitario * this.quantidade;
-			
+
 		} else if (this.quantidade > 10) {
 			double quantidade;
-			
+
 			quantidade = this.precoUnitario * this.quantidade * 0.10;
 			return this.precoUnitario * this.quantidade - quantidade;
 		} else if (this.tipoDesconto == 1) {
-			
+
 			double promocao;
 			promocao = this.precoUnitario * this.quantidade * 0.20;
 			return this.precoUnitario * this.quantidade - promocao;
@@ -48,6 +70,11 @@ public class ItemPedido {
 
 	public int getId() {
 		return id;
+	}
+
+	public String getTipo_desconto() {
+		return tipo_desconto;
+
 	}
 
 	public double getPrecoUnitario() {
@@ -81,13 +108,56 @@ public class ItemPedido {
 	@Override
 	public String toString() {
 
-		return "" + "|" + this.id + "|" + "  " + "|" + this.produtoItemPedido.getNome() + "|" + "  " + "        " + "|"
-				+ this.quantidade + "|" + "  "
+		return "ID: " + "|" + this.id + "|" + "Preço unitário:  " + dinheiro.format(this.precoUnitario) + "|"
+				+ "         " + "Quantidade: " + this.quantidade + "         " + "Produto  " + "ID do produto: "
+				+ this.produtoItemPedido.getId() + "|" + "  " + " ID do pedido: " + this.pedido.getId() + "      "
 
-				+ "           " + "|" + this.getDesconto() + "|" + "                      " +
+				+ "Desconto: " + "|" + this.getDesconto() + "|" + "                      " +
 
-				"|" + "" + this.getTipoDesconto() + " " + "|" + "              " + "R$" + this.SemDesconto() + "|" + " "
-				+ "              " + "R$" + "|" + this.filtraDescontos() + "|";
+				"|" + "Tipo de desconto: " + this.getTipoDesconto() + " " + "|" + "              "
+				+ "Produto sem desconto: " + dinheiro.format(this.SemDesconto()) + "|" + " " + "              "
+				+ "Total com descontos: " + dinheiro.format(this.filtraDescontos()) + "|" + System.lineSeparator()
+				+ System.lineSeparator();
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setPrecoUnitario(double precoUnitario) {
+		this.precoUnitario = precoUnitario;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public void setProdutoItemPedido(Produto produtoItemPedido) {
+		this.produtoItemPedido = produtoItemPedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
+
+	public void setTipoDesconto(int tipoDesconto) {
+		this.tipoDesconto = tipoDesconto;
+	}
+
+	public void setTipo_desconto(String tipo_desconto) {
+		this.tipo_desconto = tipo_desconto;
+	}
+
+	public void setLocaleBR(Locale localeBR) {
+		this.localeBR = localeBR;
+	}
+
+	public void setDinheiro(NumberFormat dinheiro) {
+		this.dinheiro = dinheiro;
 	}
 
 }

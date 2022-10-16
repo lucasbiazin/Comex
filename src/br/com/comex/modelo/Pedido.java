@@ -11,6 +11,15 @@ public class Pedido {
 	private String data;
 	private Cliente cliente;
 
+	
+	public Pedido(Integer id) throws ComexExcepetion {
+		
+		this.id = id;
+		
+		
+	}
+	
+	
 	public Pedido(String data, Cliente cliente) throws ComexExcepetion {
 
 		this.id = count.incrementAndGet();
@@ -54,7 +63,10 @@ public class Pedido {
 	@Override
 	public String toString() {
 
-		return "|" + this.id + "|" + "     " + "|" + this.data + "|" + "       " + "|" + this.cliente.getNome() + "|";
+		return "ID Pedido: " + "|" + this.id + "|"  +  System.lineSeparator()
+	+ "Data do pedido: "+ "   " + "|" + this.data + "|" + "   " 
+	+  System.lineSeparator()+ "ID do cliente: "		+ "|" + this.cliente.getId() + "|"+  System.lineSeparator()
+				+ System.lineSeparator();
 	}
 
 }
