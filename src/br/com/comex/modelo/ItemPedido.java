@@ -4,6 +4,8 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import br.com.comex.enums.EnumTipoDesconto;
+
 public class ItemPedido {
 
 	private static final AtomicInteger count = new AtomicInteger(0);
@@ -14,7 +16,7 @@ public class ItemPedido {
 	private Pedido pedido;
 	private double desconto;
 	private int tipoDesconto = 0;
-	private String tipo_desconto;
+	private EnumTipoDesconto tipo_desconto;
 
 	Locale localeBR = new Locale("pt", "BR");
 	NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
@@ -33,7 +35,7 @@ public class ItemPedido {
 	}
 
 	public ItemPedido(double precoUnitario, Integer quantidade, Produto produtoItemPedido, Pedido pedido,
-			double desconto, String tipo_desconto) {
+			double desconto, EnumTipoDesconto tipo_desconto) {
 
 		this.precoUnitario = precoUnitario;
 		this.quantidade = quantidade;
@@ -46,6 +48,10 @@ public class ItemPedido {
 	public ItemPedido(Integer id) {
 
 		this.id = id;
+	}
+
+	public ItemPedido() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public double filtraDescontos() {
@@ -72,7 +78,7 @@ public class ItemPedido {
 		return id;
 	}
 
-	public String getTipo_desconto() {
+	public EnumTipoDesconto getTipo_desconto() {
 		return tipo_desconto;
 
 	}
@@ -148,7 +154,7 @@ public class ItemPedido {
 		this.tipoDesconto = tipoDesconto;
 	}
 
-	public void setTipo_desconto(String tipo_desconto) {
+	public void setTipo_desconto(EnumTipoDesconto tipo_desconto) {
 		this.tipo_desconto = tipo_desconto;
 	}
 

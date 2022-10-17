@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.comex.enums.EnumTipoDesconto;
 import br.com.comex.modelo.ItemPedido;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
@@ -32,7 +33,7 @@ public class ItemPedidoDAO {
 			pstm.setInt(3, itemPedido.getProduto().getId());
 			pstm.setInt(4, itemPedido.getPedido().getId());
 			pstm.setDouble(5, itemPedido.getDesconto());
-			pstm.setString(6, itemPedido.getTipo_desconto());
+			pstm.setString(6, itemPedido.getTipo_desconto().name());
 
 			pstm.executeQuery();
 
@@ -78,7 +79,7 @@ public class ItemPedidoDAO {
 			pstm.setInt(3, itemPedido.getProduto().getId());
 			pstm.setInt(4, itemPedido.getPedido().getId());
 			pstm.setDouble(5, itemPedido.getDesconto());
-			pstm.setString(6, itemPedido.getTipo_desconto());
+			pstm.setString(6, itemPedido.getTipo_desconto().name());
 			pstm.setInt(7, itemPedido.getId());
 
 			pstm.execute();
@@ -134,7 +135,7 @@ public class ItemPedidoDAO {
 				new Produto(registros.getInt("produto_id")),
 				new Pedido(registros.getInt("pedido_id")),
 				registros.getDouble("desconto"), 
-				registros.getString("tipo_desconto"));
+				EnumTipoDesconto.valueOf(registros.getString("tipo_desconto")));
 
 		itemPedido.setId(registros.getInt("id"));
 		return itemPedido;

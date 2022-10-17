@@ -28,6 +28,10 @@ public class Pedido {
 
 	}
 
+	public Pedido() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public final static DateTimeFormatter formataData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	public static String formattedDate(LocalDate date) {
