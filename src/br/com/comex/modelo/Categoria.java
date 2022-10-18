@@ -83,9 +83,5 @@ public class Categoria {
 		return this.id + " - " + this.nome + " " + "Status :" + this.status + System.lineSeparator();
 	}
 
-	public int toString2() {
-
-		return this.id;
-	}
-
+	
 }

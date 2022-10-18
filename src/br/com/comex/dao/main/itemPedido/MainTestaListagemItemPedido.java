@@ -9,11 +9,21 @@ public class MainTestaListagemItemPedido {
 
 	public static void main(String[] args) {
 
-		Connection conexao = new ConnectionFactory().criaConexao();
+		try {
+			Connection conexao = new ConnectionFactory().criaConexao();
+			
+			ItemPedidoDAO itemPedidoDao = new ItemPedidoDAO(conexao);
+			
+			itemPedidoDao.lista();	
+	
+			conexao.close();
 		
-		ItemPedidoDAO itemPedidoDao = new ItemPedidoDAO(conexao);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
-		itemPedidoDao.lista();		
+			
+		
 		
 	}
 

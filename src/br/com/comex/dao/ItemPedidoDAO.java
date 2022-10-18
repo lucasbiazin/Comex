@@ -32,7 +32,7 @@ public class ItemPedidoDAO {
 			pstm.setInt(2, itemPedido.getQuantidade());
 			pstm.setInt(3, itemPedido.getProduto().getId());
 			pstm.setInt(4, itemPedido.getPedido().getId());
-			pstm.setDouble(5, itemPedido.getDesconto());
+			pstm.setDouble(5, itemPedido.filtraDescontos());
 			pstm.setString(6, itemPedido.getTipo_desconto().name());
 
 			pstm.executeQuery();

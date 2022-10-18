@@ -1,4 +1,4 @@
-package br.com.comex.dao;
+	package br.com.comex.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -107,14 +107,14 @@ public class ProdutoDAO {
 			registros.close();
 			return produtos;
 		} catch (Exception erro) {
-			System.out.println("Erro ao listar produtos: " + erro);
+			System.err.println("Erro ao listar produtos: " + erro);
 
 		}
 		return null;
 
 	}
 
-	private Produto populaProduto(ResultSet registros) throws SQLException {
+	private Produto populaProduto(ResultSet registros) {
 		try {
 			Produto produto = new Produto(
 					registros.getString("nome"), 
@@ -130,7 +130,7 @@ public class ProdutoDAO {
 
 		} catch (Exception erro) {
 
-			System.out.println("Erro ao popular produto: " + erro);
+			System.err.println("Erro ao popular produto: " + erro);
 		}
 		return null;
 

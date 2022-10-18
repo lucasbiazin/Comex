@@ -50,9 +50,7 @@ public class ItemPedido {
 		this.id = id;
 	}
 
-	public ItemPedido() {
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public double filtraDescontos() {
 
@@ -114,11 +112,11 @@ public class ItemPedido {
 	@Override
 	public String toString() {
 
-		return "ID: " + "|" + this.id + "|" + "Preço unitário:  " + dinheiro.format(this.precoUnitario) + "|"
-				+ "         " + "Quantidade: " + this.quantidade + "         " + "Produto  " + "ID do produto: "
+		return "      ID: " + "|" + this.id + "|" + "Preço unitário:  " + dinheiro.format(this.precoUnitario) + "|"
+				+ "         " + "Quantidade: " + this.quantidade + "         "  + "ID do produto: "
 				+ this.produtoItemPedido.getId() + "|" + "  " + " ID do pedido: " + this.pedido.getId() + "      "
 
-				+ "Desconto: " + "|" + this.getDesconto() + "|" + "                      " +
+				+ "Desconto: " + "|" + this.filtraDescontos() + "|" + "                      " +
 
 				"|" + "Tipo de desconto: " + this.getTipoDesconto() + " " + "|" + "              "
 				+ "Produto sem desconto: " + dinheiro.format(this.SemDesconto()) + "|" + " " + "              "
@@ -152,6 +150,9 @@ public class ItemPedido {
 
 	public void setTipoDesconto(int tipoDesconto) {
 		this.tipoDesconto = tipoDesconto;
+	}
+	public ItemPedido() {
+		
 	}
 
 	public void setTipo_desconto(EnumTipoDesconto tipo_desconto) {

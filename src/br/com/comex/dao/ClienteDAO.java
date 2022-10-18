@@ -110,7 +110,7 @@ public class ClienteDAO {
 		ResultSet registros = comandoPreparado.executeQuery();
 		Cliente cliente = null;
 		while (registros.next()) {
-			 cliente = this.populaConta(registros);
+			 cliente = this.populaCliente(registros);
 
 			cliente.setId(registros.getInt("id"));
 			clientes.add(cliente);
@@ -127,7 +127,7 @@ public class ClienteDAO {
 
 	}
 	
-	private Cliente populaConta(ResultSet registros)  {
+	private Cliente populaCliente(ResultSet registros)  {
 		
 		try {
 			

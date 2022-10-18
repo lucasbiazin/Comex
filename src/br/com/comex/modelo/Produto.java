@@ -156,15 +156,15 @@ public class Produto {
 	};
 
 	@Override
-	public String toString() {
-
-		return "ID " + getId() 
-				+ "| Nome: " + getNome() + " " 
-				+ "| Descrição: " + getDescricao() + " "
-				+ "| Preço: " + dinheiro.format(getPrecoUnitario()) + " "
-				+ "| Quantidade: " + getQuantidadeEstoque() + " "
-				+ "| Categoria: " + getCategoria().getId() + " "
-				+System.lineSeparator();}
+		public String toString() {
+	
+			return "ID " + getId() 
+					+ "| Nome: " + getNome() + " " 
+					+ "| Descrição: " + getDescricao() + " "
+					+ "| Preço: " + dinheiro.format(getPrecoUnitario()) + " "
+					+ "| Quantidade: " + getQuantidadeEstoque() + " "
+					+ "| Categoria: " + getCategoria().getId() + " "
+					+System.lineSeparator();}
 
 	
 
@@ -184,10 +184,7 @@ public class Produto {
 		this.categoria = categoria;
 	}
 
-	public int getCategoriaID(int id ) {
-		
-		return categoria.getId();
-	}
+
 	
 	
 

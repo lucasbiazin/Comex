@@ -15,7 +15,8 @@ public class MainTestaUpdateItemPedido {
 		
 		ItemPedidoDAO itemPedidoDao = new ItemPedidoDAO(conexao);
 		ItemPedido itemPedido = itemPedidoDao.buscaPorId(1);
-		itemPedido.setQuantidade(25);
+		
+		System.out.println(itemPedido);
 	
 		
 		itemPedidoDao.atualiza(itemPedido);

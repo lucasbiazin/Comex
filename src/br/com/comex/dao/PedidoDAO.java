@@ -135,7 +135,8 @@ public class PedidoDAO {
 		try {
 			Pedido pedido = new Pedido(
 
-					registros.getString("data"), new Cliente(registros.getInt("cliente_id")));
+					registros.getString("data"), 
+					new Cliente(registros.getInt("cliente_id")));
 
 			pedido.setId(registros.getInt("id"));
 
