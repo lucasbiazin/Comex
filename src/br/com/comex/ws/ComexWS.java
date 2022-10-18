@@ -3,7 +3,6 @@ package br.com.comex.ws;
 import java.sql.Connection;
 import java.util.List;
 
-import javax.jws.WebMethod;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
@@ -17,7 +16,7 @@ public class ComexWS {
 
 	private CategoriaDAO categoriaDao = new CategoriaDAO(conexao);
 
-	@WebMethod(operationName = "TodasAsCategorias")
+	
 	@WebResult(name = "categorias")
 	public List<Categoria> getCategorias() {
 
