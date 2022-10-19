@@ -2,13 +2,12 @@ package br.com.comex.modelo;
 
 import java.text.NumberFormat;
 import java.util.Locale;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import br.com.comex.enums.EnumTipoDesconto;
 
 public class ItemPedido {
 
-	private static final AtomicInteger count = new AtomicInteger(0);
+	
 	private int id;
 	private double precoUnitario;
 	private int quantidade;
@@ -24,12 +23,12 @@ public class ItemPedido {
 	public ItemPedido(double precoUnitario, int quantidade, Produto produtoItemPedido, Pedido pedido, double desconto,
 			int tipoDesconto) {
 
-		this.id = count.incrementAndGet();
+		
 		this.precoUnitario = precoUnitario;
 		this.quantidade = quantidade;
 		this.produtoItemPedido = produtoItemPedido;
 		this.pedido = pedido;
-		this.desconto = desconto;
+		this.desconto = this.filtraDescontos();;
 		this.tipoDesconto = tipoDesconto;
 
 	}

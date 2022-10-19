@@ -1,6 +1,6 @@
 package br.com.comex.modelo;
 
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -9,7 +9,7 @@ import br.com.comex.enums.Estados;
 @XmlRootElement
 public class Cliente {
 
-	private static final AtomicInteger count = new AtomicInteger(0);
+	
 	private int id;
 	private String nome;
 	private String cpf;
@@ -26,7 +26,7 @@ public class Cliente {
 	public Cliente(String nome, String cpf, String telefone, String rua, String numeroPredial, String complemento,
 			String bairro, String cidade, Estados estado) throws ComexExcepetion {
 		validaIDCliente(id);
-		this.id = count.incrementAndGet();
+	
 
 		verificaNome(nome);
 		validaNomeCliente(nome);

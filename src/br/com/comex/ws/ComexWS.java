@@ -17,6 +17,8 @@ import br.com.comex.modelo.ConnectionFactory;
 public class ComexWS {
 	Connection conexao = new ConnectionFactory().criaConexao();
 
+	
+	
 	private CategoriaDAO categoriaDao = new CategoriaDAO(conexao);
 	private ClienteDAO clienteDao = new ClienteDAO(conexao);
 
@@ -34,15 +36,14 @@ public class ComexWS {
 	@WebResult(name = "categoria")
 	public Categoria adicionarCategoria(Categoria categoria) {
 
-		CategoriaDAO categoriaDAO = new CategoriaDAO(conexao);
 
-		categoriaDAO.salvar(categoria);
+
+		categoriaDao.salvar(categoria);
 
 		return categoria;
 
 	}
 
-	
 	@WebResult(name = "cliente")
 	public List<Cliente> listarClientes(Cliente cliente) {
 

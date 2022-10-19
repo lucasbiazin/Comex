@@ -18,7 +18,7 @@ public class Categoria {
 	public Categoria(String nome, StatusCategoria status) throws ComexExcepetion {
 		validaID(id);
 		this.id = count.incrementAndGet();
-
+		validaNome(nome);
 		this.nome = nome;
 
 		validaStatus(status);
@@ -32,6 +32,7 @@ public class Categoria {
 
 	public Categoria(String nome) {
 		this.nome = nome;
+		validaStatus(status);
 		this.status = StatusCategoria.ATIVA;
 		
 	}
@@ -83,11 +84,11 @@ public class Categoria {
 	}
 
 	public StatusCategoria SetStatus() {
-		return status = StatusCategoria.ATIVA;
+		return status = status;
 	}
 
 	public void setStatus(StatusCategoria status) {
-		this.status = StatusCategoria.ATIVA;
+		this.status = status;
 	}
 
 	public String getNome() {
@@ -102,7 +103,7 @@ public class Categoria {
 	}
 
 	public void SetStatus(StatusCategoria status) {
-		status = StatusCategoria.ATIVA;
+		status = status;
 		
 		
 	}
