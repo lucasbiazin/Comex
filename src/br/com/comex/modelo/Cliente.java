@@ -2,8 +2,11 @@ package br.com.comex.modelo;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import br.com.comex.enums.Estados;
 
+@XmlRootElement
 public class Cliente {
 
 	private static final AtomicInteger count = new AtomicInteger(0);
@@ -53,11 +56,17 @@ public class Cliente {
 		this.estado = estado;
 	}
 
-	public Cliente(int id) {
-		super();
+	
+
+	public Cliente() {
+		
+	}
+	
+	public Cliente(Integer id) {
+	
 		this.id = id;
 	}
-
+	
 	public void verificaTelefone(String telefone) {
 		if (telefone == null | telefone.length() < 11 | telefone.length() > 16)
 			throw new ComexExcepetion("O telefone não pode ser nulo e deve conter  11 ou 16 numeros");
@@ -189,5 +198,67 @@ public class Cliente {
 				+ this.bairro + "|" + "   " + "" + "|" + this.cidade + "|" + "        " + "|" + this.estado + ""
 				+ System.lineSeparator();
 	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+
+
+	public void setNumeroPredial(String numeroPredial) {
+		this.numeroPredial = numeroPredial;
+	}
+
+
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+
+
+	public void setEstado(Estados estado) {
+		this.estado = estado;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
