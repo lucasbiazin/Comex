@@ -134,5 +134,25 @@ public class CategoriaDAO {
 		;
 		return categoria;
 	}
+	
+	public void deletaInativas() {
+		String sql = "DELETE FROM comex.CATEGORIA WHERE status = 'INATIVA'";
+
+		try {
+
+			PreparedStatement pstm = conexao.prepareStatement(sql);
+
+			pstm.execute();
+			
+			System.out.println("Categoria inativa deletada com sucesso!!!");
+			
+			pstm.close();
+
+		} catch (Exception erro) {
+			System.out.println("Erro ao deletar por status: " + erro);
+
+		}
+
+	}
 
 }
