@@ -24,7 +24,7 @@ public class CategoriaDAO {
 			PreparedStatement pstm = conexao.prepareStatement(sql);
 
 			pstm.setString(1, categoria.getNome());
-			pstm.setString(2, categoria.isStatus().name());
+			pstm.setString(2, categoria.SetStatus().name());
 			pstm.setInt(3, categoria.getId());
 
 			pstm.executeQuery();
@@ -46,8 +46,8 @@ public class CategoriaDAO {
 			PreparedStatement pstm = conexao.prepareStatement(sql);
 
 			pstm.setString(1, categoria.getNome());
-			pstm.setString(2, categoria.isStatus().name());
-			pstm.executeQuery();
+			pstm.setString(2, categoria.SetStatus().name());
+			pstm.execute();
 
 			System.out.println("Categoria inserida com sucesso!!!");
 
@@ -96,7 +96,6 @@ public class CategoriaDAO {
 			pstm.close();
 			System.out.println(categorias);
 			return categorias;
-			
 
 		} catch (Exception erro) {
 			System.out.println("Erro ao listar " + erro);

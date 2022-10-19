@@ -3,27 +3,44 @@ package br.com.comex.modelo;
 import br.com.comex.enums.StatusCategoria;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Categoria {
 
 	private static final AtomicInteger count = new AtomicInteger(0);
 	private int id;
 	private String nome;
-	private StatusCategoria status;
+	private StatusCategoria status = StatusCategoria.ATIVA;
+	
+
 
 	public Categoria(String nome, StatusCategoria status) throws ComexExcepetion {
 		validaID(id);
 		this.id = count.incrementAndGet();
 
-		this.setNome(nome);
+		this.nome = nome;
 
 		validaStatus(status);
 		this.status = status;
 
 	}
+	
+	public Categoria() {
+	
+	}
+
+	public Categoria(String nome) {
+		this.nome = nome;
+		this.status = StatusCategoria.ATIVA;
+		
+	}
+
 
 	public Categoria(int id) {
 		super();
 		this.id = id;
+	
 	}
 
 	public static boolean validaString(String nome) {
@@ -65,12 +82,12 @@ public class Categoria {
 		this.nome = nome;
 	}
 
-	public StatusCategoria isStatus() {
-		return status;
+	public StatusCategoria SetStatus() {
+		return status = StatusCategoria.ATIVA;
 	}
 
 	public void setStatus(StatusCategoria status) {
-		this.status = status;
+		this.status = StatusCategoria.ATIVA;
 	}
 
 	public String getNome() {
@@ -80,8 +97,14 @@ public class Categoria {
 	@Override
 	public String toString() {
 
-		return this.id + " - " + this.nome + " " + "Status :" + this.status + System.lineSeparator();
+		return this.id + " - " + this.nome + " " + "Status :" + this.status
+				+ System.lineSeparator();
 	}
 
-	
+	public void SetStatus(StatusCategoria status) {
+		status = StatusCategoria.ATIVA;
+		
+		
+	}
+
 }

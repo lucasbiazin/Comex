@@ -30,7 +30,7 @@ public class Transacao {
 		
 		catch (SQLException erro) {
 			connect.rollback();
-			System.out.println("Erro ao executar comandos: " + erro);
+			System.out.println("Erro ao executar comandos: " + erro );
 		}
 		finally {
 			connect.close();
