@@ -18,31 +18,30 @@ public class ClienteDAO {
 		this.conexao = conexao;
 	}
 
-	public void salvar(Cliente cliente)  {
+	public void salvar(Cliente cliente) {
 
 		String sql = "INSERT INTO comex.CLIENTE(nome, cpf, telefone, rua, numero,"
 				+ " complemento, bairro, cidade, uf) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
-			
-		
-		PreparedStatement stm = conexao.prepareStatement(sql);
 
-		stm.setString(1, cliente.getNome());
-		stm.setString(2, cliente.getCpf());
-		stm.setString(3, cliente.getTelefone());
-		stm.setString(4, cliente.getRua());
-		stm.setString(5, cliente.getNumeroPredial());
-		stm.setString(6, cliente.getComplemento());
-		stm.setString(7, cliente.getBairro());
-		stm.setString(8, cliente.getCidade());
-		stm.setString(9, cliente.getEstado().name());
+			PreparedStatement pstm = conexao.prepareStatement(sql);
 
-		stm.executeQuery();
+			pstm.setString(1, cliente.getNome());
+			pstm.setString(2, cliente.getCpf());
+			pstm.setString(3, cliente.getTelefone());
+			pstm.setString(4, cliente.getRua());
+			pstm.setString(5, cliente.getNumeroPredial());
+			pstm.setString(6, cliente.getComplemento());		
+			pstm.setString(7, cliente.getBairro());
+			pstm.setString(8, cliente.getCidade());
+			pstm.setString(9, cliente.getEstado().name());
 
-		System.out.println("Cliente adicionado com sucesso!!!");
+			pstm.executeQuery();
 
-		stm.close();
+			System.out.println("Cliente adicionado com sucesso!!!");
+
+			pstm.close();
 		} catch (Exception erro) {
 			System.out.println("Erro ao adicionar o cliente " + erro);
 		}
@@ -68,90 +67,78 @@ public class ClienteDAO {
 	public void atualizar(Cliente cliente) throws SQLException {
 		String sql = "UPDATE comex.CLIENTE SET nome = ?, cpf = ?, telefone = ?, rua = ?, numero = ?, "
 				+ "complemento = ?, bairro = ?, cidade = ?, uf = ?  where id = ?";
-		
+
 		try {
-			
-		
 
-		PreparedStatement pstm = conexao.prepareStatement(sql);
+			PreparedStatement pstm = conexao.prepareStatement(sql);
 
-		pstm.setString(1, cliente.getNome());
-		pstm.setNString(2, cliente.getCpf());
-		pstm.setNString(3, cliente.getTelefone());
-		pstm.setNString(4, cliente.getRua());
-		pstm.setNString(5, cliente.getNumeroPredial());
-		pstm.setNString(6, cliente.getComplemento());
-		pstm.setNString(7, cliente.getBairro());
-		pstm.setNString(8, cliente.getCidade());
-		pstm.setString(9, cliente.getEstado().name());
-		pstm.setLong(10, cliente.getId());
+			pstm.setString(1, cliente.getNome());
+			pstm.setNString(2, cliente.getCpf());
+			pstm.setNString(3, cliente.getTelefone());
+			pstm.setNString(4, cliente.getRua());
+			pstm.setNString(5, cliente.getNumeroPredial());
+			pstm.setNString(6, cliente.getComplemento());
+			pstm.setNString(7, cliente.getBairro());
+			pstm.setNString(8, cliente.getCidade());
+			pstm.setString(9, cliente.getEstado().name());
+			pstm.setLong(10, cliente.getId());
 
-		pstm.execute();
+			pstm.execute();
 
-		System.out.println("Cliente alterado com sucesso!!!");
-		pstm.close();
-		
+			System.out.println("Cliente alterado com sucesso!!!");
+			pstm.close();
+
 		} catch (Exception erro) {
-		System.out.println("Erro ao atualizar cliente "+ erro);
-			
+			System.out.println("Erro ao atualizar cliente " + erro);
+
 		}
 
 	}
 
-	public List<Cliente> listar()  {
+	public List<Cliente> listar() {
 		String sql = "SELECT * FROM comex.CLIENTE";
-		
+
 		try {
-			
-		
-		PreparedStatement comandoPreparado = conexao.prepareStatement(sql);
 
-		List<Cliente> clientes = new ArrayList<>();
-		ResultSet registros = comandoPreparado.executeQuery();
-		Cliente cliente = null;
-		while (registros.next()) {
-			 cliente = this.populaCliente(registros);
+			PreparedStatement comandoPreparado = conexao.prepareStatement(sql);
 
-			cliente.setId(registros.getInt("id"));
-			clientes.add(cliente);
-		}
-		System.out.println(clientes);
-		comandoPreparado.close();
+			List<Cliente> clientes = new ArrayList<>();
+			ResultSet registros = comandoPreparado.executeQuery();
+			Cliente cliente = null;
+			while (registros.next()) {
+				cliente = this.populaCliente(registros);
 
-		return clientes;
+				cliente.setId(registros.getInt("id"));
+				clientes.add(cliente);
+			}
+			System.out.println(clientes);
+			comandoPreparado.close();
+
+			return clientes;
 		} catch (Exception erro) {
 			System.out.println("Erro ao listar clientes " + erro);
 		}
 		return null;
-		
 
 	}
-	
-	private Cliente populaCliente(ResultSet registros)  {
-		
+
+	private Cliente populaCliente(ResultSet registros) {
+
 		try {
-			
-		
-		
-		Cliente cliente = new Cliente(
-				registros.getString("nome"), 
-				registros.getString("cpf"),
-				registros.getString("telefone"), 
-				registros.getString("rua"), 
-				registros.getString("numero"),
-				registros.getString("complemento"),	
-				registros.getString("bairro"), 
-				registros.getString("cidade"),
-				Estados.valueOf((registros.getString("uf"))));
-		
-				cliente.setId(registros.getInt("id"));;
-		return cliente;
-		
+
+			Cliente cliente = new Cliente(registros.getString("nome"), registros.getString("cpf"),
+					registros.getString("telefone"), registros.getString("rua"), registros.getString("numero"),
+					registros.getString("complemento"), registros.getString("bairro"), registros.getString("cidade"),
+					Estados.valueOf((registros.getString("uf"))));
+
+			cliente.setId(registros.getInt("id"));
+			;
+			return cliente;
+
 		} catch (Exception erro) {
-			System.out.println("erro ao popular cliente "+ erro);
+			System.out.println("erro ao popular cliente " + erro);
 		}
 		return null;
 	}
-
 
 }
