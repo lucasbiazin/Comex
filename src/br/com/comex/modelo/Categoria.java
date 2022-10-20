@@ -1,14 +1,13 @@
 package br.com.comex.modelo;
 
-import br.com.comex.enums.StatusCategoria;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import javax.xml.bind.annotation.XmlRootElement;
+
+import br.com.comex.enums.StatusCategoria;
 
 @XmlRootElement
 public class Categoria {
 
-	private static final AtomicInteger count = new AtomicInteger(0);
+
 	private int id;
 	private String nome;
 	private StatusCategoria status = StatusCategoria.ATIVA;
@@ -16,8 +15,7 @@ public class Categoria {
 
 
 	public Categoria(String nome, StatusCategoria status) throws ComexExcepetion {
-		validaID(id);
-		this.id = count.incrementAndGet();
+	
 		validaNome(nome);
 		this.nome = nome;
 
@@ -84,7 +82,7 @@ public class Categoria {
 	}
 
 	public StatusCategoria SetStatus() {
-		return status = status;
+		return status = StatusCategoria.ATIVA;
 	}
 
 	public void setStatus(StatusCategoria status) {
@@ -102,10 +100,6 @@ public class Categoria {
 				+ System.lineSeparator();
 	}
 
-	public void SetStatus(StatusCategoria status) {
-		status = status;
-		
-		
-	}
+
 
 }

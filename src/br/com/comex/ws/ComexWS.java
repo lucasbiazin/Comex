@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
@@ -34,7 +35,7 @@ public class ComexWS {
 
 	@WebMethod(operationName = "CadastrarCategoria")
 	@WebResult(name = "categoria")
-	public Categoria adicionarCategoria(Categoria categoria) {
+	public Categoria adicionarCategoria(@WebParam(name="categoria")Categoria categoria) {
 
 
 
