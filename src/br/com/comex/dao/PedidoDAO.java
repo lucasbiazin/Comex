@@ -62,17 +62,17 @@ public class PedidoDAO {
 	}
 
 	public void atualiza(Pedido pedido) {
-
-		String sql = "UPDATE comex.PEDIDO SET data, cliente_id WHERE id = ?";
+		String sql = "UPDATE comex.PEDIDO SET data = ?, cliente_id = ? where id = ?";
 
 		try {
 			PreparedStatement pstm = conexao.prepareStatement(sql);
-
+			
 			pstm.setString(1, pedido.getData());
-			pstm.setInt(2, pedido.getCliente().getId());
-
+			pstm.setLong(2, pedido.getCliente().getId());
+			pstm.setLong(3, pedido.getId());
 			pstm.executeQuery();
-
+			
+			System.out.println("Pedido alterado com sucesso!!!");
 		} catch (Exception erro) {
 			System.out.println("Erro ao atualizar pedido: " + erro);
 		}
