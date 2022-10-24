@@ -10,9 +10,9 @@ public class MainComexWS {
 
 		ComexWS service = new ComexWS();
 		
-		String url = "http://localhost:8081/ComexWS";
+		String url = "http://localhost:8080/ComexWS";
 		
-		System.out.println("ComexWS rodando... " + url);
+		System.out.println("ComexWS rodando... urL: " + url);
 		
 		Endpoint.publish(url, service);
 		

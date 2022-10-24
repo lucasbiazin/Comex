@@ -15,6 +15,7 @@ public class Transacao {
 	}
 	
 
+	@SuppressWarnings("unused")
 	private void executaComandos() throws Exception {
 		
 		Connection connect = new ConnectionFactory().criaConexao();

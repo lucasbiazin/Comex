@@ -2,10 +2,14 @@ package br.com.comex.modelo;
 
 
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.comex.enums.Estados;
 
+
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class Cliente {
 

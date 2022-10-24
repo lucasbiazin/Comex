@@ -92,7 +92,7 @@ public class CategoriaDAO {
 
 				categorias.add(categoria);
 			}
-
+			registros.close();
 			pstm.close();
 			System.out.println(categorias);
 			return categorias;
@@ -126,7 +126,9 @@ public class CategoriaDAO {
 	}
 
 	private Categoria populaCategoria(ResultSet registros) throws SQLException {
-		Categoria categoria = new Categoria(registros.getString("nome"),
+		Categoria categoria = new Categoria(
+				
+				registros.getString("nome"),
 				StatusCategoria.valueOf(registros.getString("status")));
 
 		categoria.setId(registros.getInt("id"));

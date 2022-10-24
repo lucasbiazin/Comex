@@ -17,7 +17,7 @@ public class MainTestaInsereItemPedido {
 		ItemPedidoDAO itemPedido = new ItemPedidoDAO(conexao);
 		ItemPedido pedido = new ItemPedido();
 
-		itemPedido.insere(new ItemPedido(150 , 11, new Produto(11), new Pedido(1), pedido.filtraDescontos(), EnumTipoDesconto.QUANTIDADE));
+		itemPedido.insere(new ItemPedido(150 , 2, new Produto(11), new Pedido(1), pedido.getDesconto(), EnumTipoDesconto.PROMOCAO));
 
 	}
 

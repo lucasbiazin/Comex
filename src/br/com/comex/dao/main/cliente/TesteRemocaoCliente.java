@@ -17,7 +17,7 @@ public class TesteRemocaoCliente {
 		ClienteDAO clienteDao = new ClienteDAO(conexao);
 		
 		
-		clienteDao.deletar(28);
+		clienteDao.deletar(48);
 		
 		} catch (Exception erro) {
 			System.out.println(erro);

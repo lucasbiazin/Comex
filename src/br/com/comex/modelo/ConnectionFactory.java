@@ -10,7 +10,7 @@ public class ConnectionFactory {
 
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String username = "system";
-	String password = "alura";
+	String password = "root";
 
 	public DataSource dataSource;
 

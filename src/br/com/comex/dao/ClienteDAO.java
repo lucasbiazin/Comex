@@ -126,9 +126,12 @@ public class ClienteDAO {
 
 		try {
 
-			Cliente cliente = new Cliente(registros.getString("nome"), registros.getString("cpf"),
-					registros.getString("telefone"), registros.getString("rua"), registros.getString("numero"),
-					registros.getString("complemento"), registros.getString("bairro"), registros.getString("cidade"),
+			Cliente cliente = new Cliente(
+					registros.getString("nome"), registros.getString("cpf"),
+					registros.getString("telefone"), registros.getString("rua"),
+					registros.getString("numero"),
+					registros.getString("complemento"), registros.getString("bairro"), 
+					registros.getString("cidade"),
 					Estados.valueOf((registros.getString("uf"))));
 
 			cliente.setId(registros.getInt("id"));

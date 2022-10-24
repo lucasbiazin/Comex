@@ -4,10 +4,13 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.comex.enums.TipoProduto;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class Produto {
 
