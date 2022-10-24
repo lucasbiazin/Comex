@@ -20,6 +20,7 @@ import br.com.comex.modelo.ItemPedido;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
 
+
 @WebService
 public class ComexWS {
 	Connection conexao = new ConnectionFactory().criaConexao();
@@ -206,7 +207,8 @@ public class ComexWS {
 //							Operação de Item Pedido
 	
 	
-	
+	@WebMethod(operationName = "ListarItemPedido")
+	@WebResult(name = "ItemPedido")
 	public List<ItemPedido> getItemPedidos() {
 
 		List<ItemPedido> itemPedidos = itemPedidoDao.lista();

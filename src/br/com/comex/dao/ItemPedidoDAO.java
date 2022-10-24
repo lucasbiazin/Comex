@@ -111,17 +111,23 @@ public class ItemPedidoDAO {
 
 				itemPedidos.add(pedido);
 
+				
 			}
-			System.out.println(itemPedidos);
+			
+			
 			pstm.close();
 			registros.close();
+			return itemPedidos;
 
 		} catch (Exception erro) {
 
-			System.out.println("Erro ao listar Item Pedido: " + erro);
+			System.err.println("Erro ao listar Item Pedido: " + erro);
+			
+			throw new RuntimeException(erro);
+			
 		}
 
-		return null;
+	
 
 	}
 

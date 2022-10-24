@@ -1,8 +1,5 @@
 package br.com.comex.modelo;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.comex.enums.EnumTipoDesconto;
@@ -18,9 +15,6 @@ public class ItemPedido {
 	private double desconto;
 	private int tipoDesconto = 0;
 	private EnumTipoDesconto tipo_desconto;
-
-	Locale localeBR = new Locale("pt", "BR");
-	NumberFormat dinheiro = NumberFormat.getCurrencyInstance(localeBR);
 
 	public ItemPedido(double precoUnitario, int quantidade, Produto produtoItemPedido, Pedido pedido, double desconto,
 			int tipoDesconto) {
@@ -48,6 +42,11 @@ public class ItemPedido {
 	public ItemPedido(Integer id) {
 
 		this.id = id;
+	
+	}
+	
+	public ItemPedido() {
+
 	}
 
 	public double filtraDescontos() {
@@ -70,20 +69,17 @@ public class ItemPedido {
 		return 0;
 	}
 
-
-
 	public String toString() {
 
-		return "      ID: " + "|" + this.id + "|" + "Preço unitário:  " + dinheiro.format(this.precoUnitario) + "|"
-				+ "         " + "Quantidade: " + this.quantidade + "         "  + "ID do produto: "
-				+ this.produtoItemPedido.getId() + "|" + "  " + " ID do pedido: " + this.pedido.getId() + "      "
+		return "      ID: " + "|" + this.id + "|" + "Preço unitário:  " + this.precoUnitario + "|" + "         "
+				+ "Quantidade: " + this.quantidade + "         " + "ID do produto: " + this.produtoItemPedido.getId()
+				+ "|" + "  " + " ID do pedido: " + this.pedido.getId() + "      "
 
 				+ "Desconto: " + "|" + this.filtraDescontos() + "|" + "                      " +
 
 				"|" + "Tipo de desconto: " + this.getTipoDesconto() + " " + "|" + "              "
-				+ "Produto sem desconto: " + this.getDesconto() + "|" + " " + "              "
-				+ "Total com descontos: " + this.filtraDescontos() + "|" + System.lineSeparator()
-				+ System.lineSeparator();
+				+ "Produto sem desconto: " + this.getDesconto() + "|" + " " + "              " + "Total com descontos: "
+				+ this.filtraDescontos() + "|" + System.lineSeparator() + System.lineSeparator();
 	}
 
 	public void setId(int id) {
@@ -97,11 +93,6 @@ public class ItemPedido {
 //	}
 
 	
-	public ItemPedido() {
-
-	
-
-}
 
 	public double getPrecoUnitario() {
 		return precoUnitario;
@@ -159,22 +150,7 @@ public class ItemPedido {
 		this.tipo_desconto = tipo_desconto;
 	}
 
-	public Locale getLocaleBR() {
-		return localeBR;
-	}
-
-	public void setLocaleBR(Locale localeBR) {
-		this.localeBR = localeBR;
-	}
-
-	public NumberFormat getDinheiro() {
-		return dinheiro;
-	}
-
-	public void setDinheiro(NumberFormat dinheiro) {
-		this.dinheiro = dinheiro;
-	}
-
 	public int getId() {
 		return id;
-	}}
+	}
+}
