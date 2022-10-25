@@ -16,7 +16,7 @@ public class MainTestaInsereCategoria {
 
 			CategoriaDAO categoriaDao = new CategoriaDAO(conexao);
 
-			Categoria categoria = new Categoria("Hidráulicos", StatusCategoria.INATIVA);
+			Categoria categoria = new Categoria("Hardware", StatusCategoria.INATIVA);
 
 			categoriaDao.salvar(categoria);
 
