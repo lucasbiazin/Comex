@@ -10,7 +10,7 @@ public class MainComexWS {
 
 		ComexWS service = new ComexWS();
 		
-		String url = "http://0.0.0.0:8081/ComexWS";
+		String url = "http://0.0.0.0:8080/ComexWS";
 		
 		System.out.println("ComexWS rodando... Url: " + url);
 		
