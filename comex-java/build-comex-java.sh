@@ -1,2 +1,4 @@
-docker build  -d -t  lucasbiazin/comex/comexws:0.1  .
+docker build  -t lucasbiazin/comexws:0.1 .
+
+ 
 

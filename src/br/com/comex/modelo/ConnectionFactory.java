@@ -8,7 +8,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class ConnectionFactory {
 
-	String url = "jdbc:oracle:thin:@localhost:1522:xe";
+	String url = "jdbc:oracle:thin:@0.0.0.0:1522:xe";
 	String username = "system";
 	String password = "admin";
 
